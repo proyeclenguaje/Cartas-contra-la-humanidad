@@ -38,6 +38,8 @@ CREATE TABLE `cartasb` (
 
 INSERT INTO `cartasb` (`id`, `content`) VALUES
 (1, 'El holocausto');
+INSERT INTO `cartasb` (`id`, `content`) VALUES
+(2, 'zoofilia');
 
 -- --------------------------------------------------------
 
