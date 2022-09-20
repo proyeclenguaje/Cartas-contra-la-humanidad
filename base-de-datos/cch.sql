@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-09-2022 a las 00:18:41
+-- Tiempo de generación: 21-09-2022 a las 00:28:41
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -31,6 +31,13 @@ CREATE TABLE `cartasb` (
   `id` int(11) NOT NULL,
   `content` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `cartasb`
+--
+
+INSERT INTO `cartasb` (`id`, `content`) VALUES
+(1, 'El holocausto');
 
 -- --------------------------------------------------------
 
