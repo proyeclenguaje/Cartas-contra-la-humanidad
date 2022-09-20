@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-09-2022 a las 00:13:56
+-- Tiempo de generación: 21-09-2022 a las 00:18:41
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -32,6 +32,17 @@ CREATE TABLE `cartasb` (
   `content` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `cartasn`
+--
+
+CREATE TABLE `cartasn` (
+  `id` int(11) NOT NULL,
+  `content` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Índices para tablas volcadas
 --
@@ -43,6 +54,12 @@ ALTER TABLE `cartasb`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `cartasn`
+--
+ALTER TABLE `cartasn`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -51,6 +68,12 @@ ALTER TABLE `cartasb`
 --
 ALTER TABLE `cartasb`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `cartasn`
+--
+ALTER TABLE `cartasn`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
