@@ -3,6 +3,8 @@
 # - Mathias
 # - Anibal
 # - Camila
+# - Santiago
+
 
 from distutils.log import debug
 from flask import Flask, render_template,request
