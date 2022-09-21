@@ -5,7 +5,7 @@
 # - Camila
 # - Santiago
 # - Natalia
-
+# - Liz 
 from distutils.log import debug
 from flask import Flask, render_template,request
 from flask_socketio import SocketIO
