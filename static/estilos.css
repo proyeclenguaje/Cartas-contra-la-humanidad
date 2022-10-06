@@ -1,3 +1,49 @@
 *{
-    background-color: #0776;
+    background: #0776;
+    font-size: 30px;
+}
+span{
+    background: #fff;
+    box-sizing: content-box;
+    width: 100%;
+    
+}
+span.Negra{
+    background: #000;width: 100%;
+    color: #fff;
+    box-sizing: border-box;
+}
+
+.Container{
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    flex-wrap: wrap ;
+}
+.Mesa{
+    flex-wrap: 1;
+    justify-content: center;
+    height: 370px;
+    width: 1300px;
+    background-color: #fff;
+    padding: 15px;
+    border: 4px solid #000;
+}
+.Carta{
+    padding: 10px;
+    color: #000;
+    box-sizing: content-box;
+    text-align: center;
+    display: inline-block;
+    height: 320px;
+    width: 17.5%;
+    margin: 8px;
+    border: 1px solid #000;
+    background-color: #fff;
+    
+}
+#Negra{
+    background-color: #000;  
+    height: 320px;
+    width: 270px;
 }

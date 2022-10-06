@@ -9,7 +9,7 @@ socketio = SocketIO(app)
 
 @app.route('/')
 def index():
-    return render_template("index.html")
+    return render_template("Player_area.html")
  
 if __name__ == '__main__':
-    socketio.run(app,debug=True,port=5000)
+    socketio.run(app,debug=True,port=5000,allow_unsafe_werkzeug=True)
