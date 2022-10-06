@@ -47,3 +47,15 @@ span.Negra{
     height: 320px;
     width: 270px;
 }
+
+.C1, .C2, .C3, .C4, .C5, .C6, .C7, .C8, .C9, .C10 {
+    flex-wrap: wrap;
+    display:inline-block;
+  
+    margin: 5px;
+    width:10%;
+    height:100%;
+    background: rgb(255, 0, 0);
+    border-color: black;
+    border-width: 3px;
+ }
