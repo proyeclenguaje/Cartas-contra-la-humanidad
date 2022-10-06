@@ -1,12 +1,3 @@
-# - Adrian
-# - Richard
-# - Mathias
-# - Anibal
-# - Camila
-# - Santiago
-# - Natalia
-# - Liz
-# - Nicolas
 
 from distutils.log import debug
 from flask import Flask, render_template,request
