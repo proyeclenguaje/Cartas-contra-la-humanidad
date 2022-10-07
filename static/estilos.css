@@ -1,6 +1,6 @@
 *{
     background: #0776;
-    font-size: 30px;
+    font-size: 14px;
 }
 span{
     background: #fff;
@@ -22,30 +22,44 @@ span.Negra{
 }
 .Mesa{
     flex-wrap: 1;
-    justify-content: center;
+    align-content:flex-end;
     height: 370px;
     width: 1300px;
     background-color: #fff;
     padding: 15px;
     border: 4px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Cronometro{
+    justify-content: center;
+    height: 26px;
+    width: 66px;
+    border: 1px solid #000;
+    float: right;
+    background: #fff;
 }
 .Carta{
     padding: 10px;
     color: #000;
-    box-sizing: content-box;
-    text-align: center;
     display: inline-block;
-    height: 320px;
-    width: 17.5%;
+    height: 196px;
+    width: 136px;
     margin: 8px;
     border: 1px solid #000;
     background-color: #fff;
+    border-radius: 7px;
     
 }
 #Negra{
     background-color: #000;  
-    height: 320px;
-    width: 270px;
+    height: 276px;
+    width: 226px;
+    margin-right: 200px;
+    margin-left: 0px;
+    word-wrap: break-word;
+    color: #fff;
 }
 
 .ManoJugador {
