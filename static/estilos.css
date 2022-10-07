@@ -44,6 +44,9 @@ span.Negra{
     padding: 10px;
     color: #000;
     display: inline-block;
+    font-family: sans-serif;
+    font-size: 20px;
+    word-wrap: break-word;
     height: 196px;
     width: 136px;
     margin: 8px;
@@ -53,10 +56,12 @@ span.Negra{
     
 }
 #Negra{
-    background-color: #000;  
+    background-color: #000;
+    padding: 20px;
+    font-family: sans-serif;  
     height: 276px;
     width: 226px;
-    margin-right: 200px;
+    margin-right: 180px;
     margin-left: 0px;
     word-wrap: break-word;
     color: #fff;
