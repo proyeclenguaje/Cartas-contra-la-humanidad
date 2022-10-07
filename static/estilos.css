@@ -48,13 +48,24 @@ span.Negra{
     width: 270px;
 }
 
+.ManoJugador {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .C1, .C2, .C3, .C4, .C5, .C6, .C7, .C8, .C9, .C10 {
+    box-sizing: content-box;
     flex-wrap: wrap;
+    padding: 10px;
+    word-wrap: break-word;
     display:inline-block;
-  
-    margin: 5px;
-    width: 115px;
-    height: 161px;
+    text-align: left;
+    font-size: 13px;
+    font-family: sans-serif;
+    margin: 3px;
+    width: 105px;
+    height: 147px;
     background: rgb(255, 255, 255);
     border: 1px solid #000;
     border-radius: 7px;
