@@ -53,9 +53,9 @@ span.Negra{
     display:inline-block;
   
     margin: 5px;
-    width:10%;
-    height:100%;
-    background: rgb(255, 0, 0);
-    border-color: black;
-    border-width: 3px;
+    width: 115px;
+    height: 161px;
+    background: rgb(255, 255, 255);
+    border: 1px solid #000;
+    border-radius: 7px;
  }
