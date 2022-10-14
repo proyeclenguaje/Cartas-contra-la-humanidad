@@ -1,6 +1,6 @@
 *{
-    margin 0;
-    padding 0;
+    margin: 0;
+    padding: 0;
     }
     body{
         display: flex;
@@ -24,7 +24,7 @@
     .loader{
         height: 50px;
         width: 50px;
-        #background: red;
+        background: red;
         position: absolute;
         animation: rotate 3.5s linear infinite;
     }
