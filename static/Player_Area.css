@@ -23,8 +23,8 @@ span.Negra{
 .Mesa{
     flex-wrap: 1;
     align-content:flex-end;
-    height: 370px;
-    width: 1300px;
+    height: 500px;
+    width: 1600px;
     background-color: #fff;
     padding: 15px;
     border: 4px solid #000;
@@ -68,12 +68,13 @@ span.Negra{
 }
 
 .ManoJugador {
+    height: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.C1, .C2, .C3, .C4, .C5, .C6, .C7, .C8, .C9, .C10 {
+.C1, .C2, .C3, .C4, .C5, .C6, .C7 {
     box-sizing: content-box;
     flex-wrap: wrap;
     padding: 10px;
@@ -83,8 +84,8 @@ span.Negra{
     font-size: 13px;
     font-family: sans-serif;
     margin: 3px;
-    width: 105px;
-    height: 147px;
+    width: 130px;
+    height: 170px;
     background: rgb(255, 255, 255);
     border: 1px solid #000;
     border-radius: 7px;

@@ -1,0 +1,28 @@
+{% extends './layout.html' %}
+{% block title%}Registrarse{%endblock%}
+{% block css%}<link rel="stylesheet" href="{{ url_for('static',filename='estilos.css') }}">{%endblock%}
+{% block js %}<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.3/socket.io.js"></script>{% endblock %}
+{% block body %} 
+    <div class="container">
+        <div class="logreg">
+            <div class="cabecera a">
+                <h1 class="obj">Registrarse</h1>
+            </div>
+            <div class="inputs a">
+                <input type="text" name="nombre" class="nombre obj" placeholder="Nombre">
+                <input type="password" name="pass" class="pass obj" placeholder="Contraseña">
+            </div>
+            <div class="boton a">
+                <button class="obj register">Registrarse</button>
+                <p>Ya tiene una cuenta <a href="/login.html" class="login">Iniciar Sesión</a></p>
+            </div>
+        </div>
+    </div>
+    {% block script %}
+    
+    <script src="{{ url_for('static',filename='register.js') }}"></script>
+    
+    
+    {% endblock %}
+{% endblock %}
+
