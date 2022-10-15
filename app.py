@@ -19,14 +19,14 @@ mysql = MySQL(app)
 @app.route('/login.html')
 def login():
     return render_template("login.html")
-
-@app.route(' ister.html')
+@app.route('/register.html')
 def register():
     return render_template('register.html')
 
 @app.route('/Player.html')
 def index():
    return render_template("Player.html")
+
 def obtener_login():
     cur = mysql.connection.cursor()
     cur.execute('SELECT id, name, pass FROM user')
@@ -41,7 +41,7 @@ def name(msg):
         if msg in i:
             socketio.emit('confirmname',True)
         else:
-            print("no funciona")
+            print("no funciona name")
 @socketio.on('pass')
 def passw(msg):
     data = obtener_login()
@@ -49,7 +49,14 @@ def passw(msg):
         if msg in i:
             socketio.emit('confirmpass',True)
         else:
-            print("no funciona")
+            print("no funciona pass")
+
+@socketio.on('regis')
+def name(name,pasw):
+    cursor = mysql.connection.cursor()
+    cursor.execute("INSERT INTO user (name,pass) VALUES (%s,%s)", [name,pasw])
+    mysql.connection.commit()
+    cursor.close()
 
 if __name__ == '__main__':
     socketio.run(app,debug=True,port=5000)

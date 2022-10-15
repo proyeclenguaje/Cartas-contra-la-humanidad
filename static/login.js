@@ -13,7 +13,6 @@ document.querySelector(".conect").addEventListener("click",()=>{
     socket.emit('pass',pass);
     
 });
-
 socket.on('confirmname', function(data){
     if(data == true){
         socket.on('confirmpass', function(date){

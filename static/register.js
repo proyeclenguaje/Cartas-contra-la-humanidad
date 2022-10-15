@@ -1,12 +1,12 @@
 const socket = io();
 
 document.querySelector(".register").addEventListener("click",()=>{
-    let obj = {};
-    obj[0] = document.querySelector(".nombre").value;
-    obj[1] = document.querySelector(".pass").value;
+    let name,pass;
+    name = document.querySelector(".nombre").value;
+    pass = document.querySelector(".pass").value;
     
-    console.log(obj);
-    
-    //window.location = '/login.html';
+    socket.emit('regis',name,pass);
+    //socket.emit('regpass',pass);
+    window.location = '/login.html';
 });
 

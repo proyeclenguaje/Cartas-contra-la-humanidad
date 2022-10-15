@@ -1,2 +1,1 @@
-
-   return render_template("Player_area.html")
+cursor.execute("INSERT INTO user (name) VALUES (%s)", (msg))
