@@ -41,6 +41,7 @@ def name(msg):
         if msg in i:
             socketio.emit('confirmname',True)
         else:
+            socketio.emit('errn',True)
             print("no funciona name")
 @socketio.on('pass')
 def passw(msg):
@@ -49,6 +50,7 @@ def passw(msg):
         if msg in i:
             socketio.emit('confirmpass',True)
         else:
+            socketio.emit('errp',True)
             print("no funciona pass")
 
 @socketio.on('regis')

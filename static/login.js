@@ -22,3 +22,14 @@ socket.on('confirmname', function(data){
         })
     }
 });
+
+socket.on('errn', (data)=>{
+    if(data == true){
+        document.querySelector(".err").textContent = "Nombre o contraseña incorrecto";
+    }
+});
+socket.on('errp',(msg)=>{
+    if(msg == true){
+        document.querySelector(".err").textContent = "Nombre o contraseña incorrecto";
+    }
+});
