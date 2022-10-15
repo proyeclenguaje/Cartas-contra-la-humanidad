@@ -15,15 +15,14 @@ app.config['MYSQL_DB'] = 'cartas'
 mysql = MySQL(app)
 
 
-
 @app.route('/')
 @app.route('/login.html')
 def login():
     return render_template("login.html")
 
-@app.route('/register.html')
+@app.route(' ister.html')
 def register():
-    return render_template('/register.html')
+    return render_template('register.html')
 
 @app.route('/Player.html')
 def index():
