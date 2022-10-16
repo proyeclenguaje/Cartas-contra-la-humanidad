@@ -16,20 +16,22 @@ mysql = MySQL(app)
 
 
 @app.route('/')
+@app.route('/menu.html')
+def menu():
+    return render_template('menu.html')
 @app.route('/login.html')
 def login():
     return render_template("login.html")
 @app.route('/register.html')
 def register():
     return render_template('register.html')
-
 @app.route('/Player.html')
 def index():
    return render_template("Player.html")
 
 def obtener_login():
     cur = mysql.connection.cursor()
-    cur.execute('SELECT id, name, pass FROM user')
+    cur.execute('SELECT name, pass FROM user')
     data = cur.fetchall()
     cur.close()
     return data

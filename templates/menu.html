@@ -1,0 +1,26 @@
+{% extends './layout.html' %}
+{% block title%}Menu{%endblock%}
+{% block css%}<link rel="stylesheet" href="{{ url_for('static',filename='menu.css') }}">{%endblock%}
+{% block js %}<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.3/socket.io.js"></script>{% endblock %}
+{% block body %} 
+    
+    <div class="container">
+        <div class="menu">
+            <div class="cabecera">
+                <h1 class="title">Menú</h1>
+                <h2 class="name">{{data}}</h2>
+            </div>
+            <div class="botones">
+                <button class="opc btn">Opciones</button>
+                <button class="conect btn">Conectar</button>
+            </div>
+            <div class="login-out">
+                <a href="/login.html">Cerrar Sesión</a>
+            </div>
+        </div>
+    </div>
+
+    {% block script %}
+    <script src="{{ url_for('static',filename='menu.js') }}"></script>
+    {% endblock %}
+{% endblock %}
