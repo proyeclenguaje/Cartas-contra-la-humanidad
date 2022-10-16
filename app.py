@@ -14,10 +14,12 @@ app.config['MYSQL_DB'] = 'cartas'
 
 mysql = MySQL(app)
 
+name = ""
+
 @app.route('/')
-#@app.route('/menu.html')
-#def menu():
- #   return render_template('menu.html')
+@app.route('/menu.html')
+def menu():
+    return render_template('menu.html',data = name)
 @app.route('/login.html')
 def login():
     return render_template("login.html")
@@ -34,12 +36,15 @@ def obtener_login():
     data = cur.fetchall()
     cur.close()
     return data
-
+def obtener_name(nm):
+    global name
+    name = nm
 @socketio.on('name')
 def name(msg):
     data = obtener_login()
     for i in data:
         if msg in i:
+            obtener_name(msg)
             socketio.emit('confirmname',True)
         else:
             socketio.emit('errn',True)

@@ -11,9 +11,45 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: 300px;
-    width: 300px;
+    align-items: center;
+    /*padding: 30px;
+    margin: 20px;*/
+    height: 400px;
+    width: 400px;
     background-color: #ffe;
     border: 1px solid #999;
     border-radius: 8px;
+}
+
+.df{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /*border: 1px solid #000;*/
+}
+.cabecera{
+    width: 300px;
+    height: 80px;
+}
+.botones{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 300px;
+    height: 180px;
+}
+.login-out{
+    width: 300px;
+    height: 40px;
+}
+.btn{
+    height: 20px;
+    width: 180px;
+}
+.opc{
+     margin-top: 40px;
+}
+.conect{
+    margin-bottom: 40px;
 }
