@@ -1,0 +1,33 @@
+{% extends './layout.html' %}
+
+{% block title%} Cartas contra la humanidad {%endblock%}
+{% block css%}<link rel="stylesheet" href="{{ url_for('static',filename='Player_Area.css') }}">{%endblock%}
+{% block body %}
+
+<div class="Container">
+    <div class="Entorno">
+        <div class="Mesa">
+          <div class="Carta" id="Negra">ebjhbbbbbbbbbbbbbbbbbbbbbbbjhdsfjhsvd<span class="Negra"></span></div>
+          <div class="Carta"><span>cjhsbdkckjsbdkjbksbkjcbhsjdbkfjjjjjjjsdnskdjckscb</span></div>
+          <div class="Carta"><span></span></div>
+          <div class="Carta"><span></span></div>
+        </div>
+        <div class="ManoJugador">
+            <button class="C1"><a href=""></a></button>
+            <button class="C2"><a href=""></a></button>
+            <button class="C3"><a href=""></a></button>
+            <button class="C4"><a href=""></a></button>
+            <button class="C5"><a href=""></a></button>
+            <button class="C6"><a href=""></a></button>
+            <button class="C7"><a href=""></a></button>
+        </div>
+    </div>
+    {% block script %}
+    
+    <script src="{{ url_for('static',filename='player.js') }}"></script>
+    
+    
+    {% endblock %}
+</div>
+  
+{% endblock %}
