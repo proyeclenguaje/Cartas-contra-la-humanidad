@@ -22,7 +22,12 @@
             <button class="C7"><a href=""></a></button>
         </div>
     </div>
-
+    {% block script %}
+    
+    <script src="{{ url_for('static',filename='player.js') }}"></script>
+    
+    
+    {% endblock %}
 </div>
   
 {% endblock %}
