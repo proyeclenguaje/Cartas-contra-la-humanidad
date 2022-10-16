@@ -16,6 +16,9 @@ mysql = MySQL(app)
 
 
 @app.route('/')
+@app.route('/submenu.html')
+def submenu():
+    return render_template("submenu.html")
 @app.route('/login.html')
 def login():
     return render_template("login.html")
