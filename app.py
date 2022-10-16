@@ -14,11 +14,10 @@ app.config['MYSQL_DB'] = 'cartas'
 
 mysql = MySQL(app)
 
-
 @app.route('/')
-@app.route('/menu.html')
-def menu():
-    return render_template('menu.html')
+#@app.route('/menu.html')
+#def menu():
+ #   return render_template('menu.html')
 @app.route('/login.html')
 def login():
     return render_template("login.html")
