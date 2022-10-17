@@ -16,6 +16,7 @@ app.config['MYSQL_DB'] = 'cartas'
 mysql = MySQL(app)
 
 name = ""
+cj = 0
 
 @app.route('/')
 @app.route('/login.html')
@@ -29,8 +30,9 @@ def menu():
     return render_template('menu.html')
 @app.route('/Player.html')
 def palyer():
-   return render_template("Player.html")
-   
+    if cj == 4:
+        return render_template("Player.html")
+
 def obtener_login():
     cur = mysql.connection.cursor()
     cur.execute('SELECT name, pass FROM user')
@@ -68,5 +70,9 @@ def name(name,pasw,may):
 def envio_name(msg):
     print(msg)
     socketio.emit('nameper',name)
+@socketio.on('contj')
+def conj(msg):
+    global cj
+    cj = cj + msg
 if __name__ == '__main__':
     socketio.run(app,debug=True,port=5000)

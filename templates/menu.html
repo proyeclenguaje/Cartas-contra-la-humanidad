@@ -3,7 +3,6 @@
 {% block css%}<link rel="stylesheet" href="{{ url_for('static',filename='menu.css') }}">{%endblock%}
 {% block js %}<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.3/socket.io.js"></script>{% endblock %}
 {% block body %} 
-    
     <div class="container">
         <div class="menu">
             <div class="cabecera df">
@@ -12,9 +11,13 @@
             </div>
             <div class="botones df">
                 <div class="header">
-                    <ul>
-                        <li><a href="">tamaño de fuente</a></li>
-                        <li><a href="">color de fuente</a></li>
+                    <ul class="opc">
+                        <li><a href="">Opciones</a>
+                            <ul>
+                                <li><a href="">tamaño de fuente</a></li>
+                                <li><a href="">color de fuente</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
                 <button class="conect btn">Conectar</button>
@@ -24,7 +27,6 @@
             </div>
         </div>
     </div>
-
     {% block script %}
     <script src="{{ url_for('static',filename='menu.js') }}"></script>
     {% endblock %}

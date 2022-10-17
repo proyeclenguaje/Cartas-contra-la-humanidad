@@ -1,6 +1,4 @@
-
 const socket = io();
-
 
 document.querySelector(".conect").addEventListener("click",()=>{
     let name,pass;
@@ -17,7 +15,7 @@ socket.on('confirmname', function(data){
     if(data == true){
         socket.on('confirmpass', function(date){
             if(date == true){
-                console.log("algo anda mal")
+                socket.emit('contj',1);
                 window.location = '/menu.html';
             }
         })
