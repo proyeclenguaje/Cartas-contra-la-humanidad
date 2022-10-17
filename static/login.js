@@ -17,6 +17,7 @@ socket.on('confirmname', function(data){
     if(data == true){
         socket.on('confirmpass', function(date){
             if(date == true){
+                console.log("algo anda mal")
                 window.location = '/menu.html';
             }
         })
