@@ -5,28 +5,23 @@
 {% block body %}
 
 <div class="Container">
-    <div class="Entorno">
-        <div class="Cronometro">
-            <div class="tiempo">
-                00:00
-            </div>
-        </div>
+    <div class="Entorno"> 
         <div class="Mesa">
           <div class="Carta" id="Negra"><span class="Negra"> </span></div>
-          <div class="Carta"><span>cjhsbdkckjsbdkjbksbkjcbhsjdbkfjjjjjjjsdnskdjckscb</span></div>
+          <div class="Carta" ><p id="player1"></p></div>
           <div class="Carta"><span></span></div>
           <div class="Carta"><span></span></div>
         </div>
         <div class="ManoJugador">
-            <form>
-                <button class="C1"></button>
-                <button class="C2"></button>
-                <button class="C3"></button>
-                <button class="C4"></button>
-                <button class="C5"></button>
-                <button class="C6"></button>
-                <button class="C7"></button>
-            </form>
+            <!-- <form> -->
+                <button class="C1" id="C1" onclick="envio()">iiiiiiiiiiii</button>
+                <button class="C2" id="C2" onclick="envio()"> </button>
+                <button class="C3" id="C3" onclick="envio()"> </button>
+                <button class="C4" id="C4" onclick="envio()"> </button>
+                <button class="C5" id="C5" onclick="envio()"></button>
+                <button class="C6" id="C6" onclick="envio()"></button>
+                <button class="C7" id="C7" onclick="envio()"></button>
+            <!-- </form> -->
         </div>
     </div>
     {% block script %}
