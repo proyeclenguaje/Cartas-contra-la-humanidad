@@ -67,3 +67,24 @@ input{
     width: 15px;
     height: 15px;
 }
+a{
+    text-decoration: none;
+    color: #000;
+}
+.regis{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 110px;
+    height: 50px;
+    border: 1px solid #999;
+    border-radius: 4px;
+}
+a:hover{
+    
+    color: #fff;
+}
+.regis:hover{
+    background-color: #555;
+    color: #fff;
+}

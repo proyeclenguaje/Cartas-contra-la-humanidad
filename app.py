@@ -18,6 +18,7 @@ mysql = MySQL(app)
 name = ""
 
 @app.route('/')
+
 @app.route('/login.html')
 def login():
     return render_template("login.html")
