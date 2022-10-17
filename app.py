@@ -18,7 +18,6 @@ mysql = MySQL(app)
 name = ""
 
 @app.route('/')
-
 @app.route('/login.html')
 def login():
     return render_template("login.html")
@@ -31,6 +30,7 @@ def menu():
 @app.route('/Player.html')
 def palyer():
    return render_template("Player.html")
+   
 def obtener_login():
     cur = mysql.connection.cursor()
     cur.execute('SELECT name, pass FROM user')

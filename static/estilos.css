@@ -80,11 +80,10 @@ a{
     border: 1px solid #999;
     border-radius: 4px;
 }
-a:hover{
-    
-    color: #fff;
-}
 .regis:hover{
     background-color: #555;
-    color: #fff;
+}
+
+.login{
+    color: #e4f;
 }
