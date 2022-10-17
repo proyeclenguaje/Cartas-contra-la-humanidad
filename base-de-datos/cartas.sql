@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-10-2022 a las 04:26:05
+-- Tiempo de generación: 17-10-2022 a las 01:54:30
 -- Versión del servidor: 10.4.24-MariaDB
--- Versión de PHP: 7.4.29
+-- Versión de PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -451,6 +451,72 @@ CREATE TABLE `cartasn` (
   `may` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `cartasn`
+--
+
+INSERT INTO `cartasn` (`id`, `content`, `may`) VALUES
+(1, 'Bebo para olvidar _______________', 0);
+(2, '_______________:Bueno hasta la última gota', 0);
+(3, '¿Qué es ese sonido?', 0);
+(4, '¿A qué huele?', 0);
+(5, 'Durante el sexo me gusta pensar en _______________', 1);
+(6, 'La medicina alternativa ahora usa las propiedades curativas de _______________', 0);
+(7, 'Por culpa de un error de marketing Super 6 ha dejado de vender _______________', 0);
+(8, '¿Por qué estoy pegajoso?', 0);
+(9, 'Hoy el tío de la bricomanía construirá _______________', 0);
+(10, '¿Qué me traje de Marruecos?', 0);
+(11, '¿Qué ayuda a Obama a relajarse?', 0);
+(12, '_______________. ¡Chócalas!', 0);
+(13, 'Durante el comunmente infravalorado Periodo Marrón de Picasso, hizo cientos de pinturas de _______________', 0);
+(14, '¡Es una trampa!', 0);
+(15, '¿Que es lo que más le gusta a Marito?', 0);
+(16, '¡A que no puedes comer solo uno!', 0);
+(17, 'La guerra sirve para _______________', 0);
+(18, '¿Qué es lo que no te gustaría encontrar en un plato de comida china?', 0);
+(19, '¿Cuál es el próximo juguete de la cajita feliz?', 0);
+(20, 'Este año, en vez de carbón, Papa Noel traerá _______________ a los niños malos', 0);
+(21, '¿Cómo mantengo estable mi relación en pareja?', 0);
+(22, 'Cuando sea presidente, crearé el ministerio de _______________', 0);
+(23, '¿Cuál es mi poder secreto?', 0);
+(24, 'USA ha empezado a enviar _______________ a los niños de Afghanistan', 0);
+(25, 'Ojalá no hubiese perdido mi manual de _______________', 0);
+(26, '¿Por qué no puedo dormir por las noches?', 0);
+(27, 'Cuando esté en la cárcel, meteré _______________ de contrabando', 0);
+(28, '¿Qué come Vin Diesel para la cena?', 0);
+(29, 'El paraíso está lleno de _______________', 0);
+(30, '¿Qué es lo que hay que hacer para llevarte a la cama?', 1);
+(31, 'Cuando sea multimillonario, levantaré una estatua de 20 metros en honor a _______________', 0);
+(32, '¿Qué encontraría tu abuela perturbador pero extrañamente encantador?', 0);
+(33, 'En la nueva película original de Disney Channel, Hannah Montana se enfrenta por primera vez con _______________', 0);
+(34, '¿Cuál es el vicio secreto de Batman?', 0);
+(35, '¿Qué me llevaría en un viaje al pasado para convencer a la gente de que soy un poderoso mago?', 0);
+(36, '¿Cuál es mi anti-droga?', 0);
+(37, 'La liga de fútbol ha prohibido _______________ por dar una ventaja injusta a los jugadores', 0);
+(38, '¿_______________? ¡Hay una aplicación para eso!', 0);
+(39, '¿Qué me produce gases incontrolados?', 0);
+(40, '¿Qué es lo más crujiente?', 0);
+(41, '¿A qué huelen las personas mayores?', 0);
+(42, '_______________: Probado en niños, aprobado por las madres', 0);
+(43, '¿Qué mejora con los años?', 0);
+(44, 'Lo siento, acabo de _______________', 0);
+(45, 'A los blancos les gusta _______________', 0);
+(46, 'La vida era difícil para los cavernícolas antes de _______________', 0);
+(47, '¿Quién ha robado las galletas del tarro de las galletas?', 0);
+(48, '¿Qué es lo más emo?', 0);
+(49, 'Antes de matarle, señor Bond, me gustaría enseñarle _______________', 0);
+(50, 'La excursión al campo fue completamente arruinada por _______________', 0);
+(51, '¿Qué es el mejor amigo de una chica?', 0);
+(52, 'Los estudios demuestran que las ratas de laboratiorio resuelven laberintos un 50% más rápido tras ser expuestas a _______________', 0);
+(53, '¿Qué me han estado ocultando mis padres?', 0);
+(54, 'Los antropologos han descubierto una tribu antigua que venera _______________', 0);
+(55, '¿Qué funciona siempre para ligar?', 1);
+(56, '¿Cuál es la nueva dieta maravilla?', 0);
+(57, 'Es una pena que los niños de ahora se involucren en _______________', 0);
+(58, 'Ahora se prohibe _______________ en los aviones', 0);
+(59, 'En sus últimos momentos Michael Jackson pensó en _______________', 0);
+(60, 'Llame ya para adquirir un _______________ nuestras operadoras le están esperando',);
+
 -- --------------------------------------------------------
 
 --
@@ -499,7 +565,7 @@ ALTER TABLE `cartasb`
 -- AUTO_INCREMENT de la tabla `cartasn`
 --
 ALTER TABLE `cartasn`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `user`
