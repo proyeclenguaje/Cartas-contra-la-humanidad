@@ -1,3 +1,4 @@
+from socket import socket
 from flask import Flask, render_template, request, redirect, url_for
 from flask_mysqldb import MySQL
 from flask_socketio import SocketIO
@@ -17,17 +18,20 @@ mysql = MySQL(app)
 name = ""
 
 @app.route('/')
-@app.route('/menu.html')
-def menu():
-    return render_template('menu.html',data = name)
 @app.route('/login.html')
 def login():
     return render_template("login.html")
 @app.route('/register.html')
 def register():
     return render_template('register.html')
+@app.route('/menu.html')
+def menu():
+    return render_template('menu.html')
+@app.route('/submenu.html')
+def submenu():
+   return render_template("submenu.html")
 @app.route('/Player.html')
-def index():
+def palyer():
    return render_template("Player.html")
 
 def obtener_login():
@@ -36,15 +40,14 @@ def obtener_login():
     data = cur.fetchall()
     cur.close()
     return data
-def obtener_name(nm):
-    global name
-    name = nm
+    
 @socketio.on('name')
 def name(msg):
     data = obtener_login()
     for i in data:
         if msg in i:
-            obtener_name(msg)
+            global name
+            name = msg
             socketio.emit('confirmname',True)
         else:
             socketio.emit('errn',True)
@@ -66,5 +69,9 @@ def name(name,pasw):
     mysql.connection.commit()
     cursor.close()
 
+@socketio.on('aaa')
+def envio_name(msg):
+    print(msg)
+    socketio.emit('nameper',name)
 if __name__ == '__main__':
     socketio.run(app,debug=True,port=5000)
