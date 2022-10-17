@@ -22,13 +22,12 @@
 
 input{
     height: 25px;
-    width: 250px;
+    width: 200px;
 }
 .a{
     display: flex;
     justify-content: center;
     align-items: center;
-   /* border: 1px solid #000;*/
 }
 .cabecera{
     width: 280px;
@@ -41,7 +40,7 @@ input{
     align-items: center;
     
     width: 280px;
-    height: 200px;
+    height: 190px;
 }
 .boton{
     display: flex;
@@ -52,4 +51,19 @@ input{
 
 .err{
     color: red;
+}
+.mayr{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 280px;
+    height: 30px;
+    margin-bottom: 10px;
+}
+.check{
+    margin-left: 10px;
+    margin-top: 4px;
+    width: 15px;
+    height: 15px;
 }

@@ -27,13 +27,9 @@ def register():
 @app.route('/menu.html')
 def menu():
     return render_template('menu.html')
-@app.route('/submenu.html')
-def submenu():
-   return render_template("submenu.html")
 @app.route('/Player.html')
 def palyer():
    return render_template("Player.html")
-
 def obtener_login():
     cur = mysql.connection.cursor()
     cur.execute('SELECT name, pass FROM user')
@@ -51,7 +47,6 @@ def name(msg):
             socketio.emit('confirmname',True)
         else:
             socketio.emit('errn',True)
-            print("no funciona name")
 @socketio.on('pass')
 def passw(msg):
     data = obtener_login()
@@ -60,12 +55,11 @@ def passw(msg):
             socketio.emit('confirmpass',True)
         else:
             socketio.emit('errp',True)
-            print("no funciona pass")
 
 @socketio.on('regis')
-def name(name,pasw):
+def name(name,pasw,may):
     cursor = mysql.connection.cursor()
-    cursor.execute("INSERT INTO user (name,pass) VALUES (%s,%s)", [name,pasw])
+    cursor.execute("INSERT INTO user (name,pass,may) VALUES (%s,%s,%s)", [name,pasw,may])
     mysql.connection.commit()
     cursor.close()
 

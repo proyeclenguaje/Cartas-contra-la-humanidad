@@ -26,7 +26,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /*border: 1px solid #000;*/
+    
 }
 .cabecera{
     width: 300px;
@@ -37,7 +37,7 @@
     align-items: center;
     justify-content: space-around;
     width: 300px;
-    height: 180px;
+    height: 170px;
 }
 .login-out{
     width: 300px;
@@ -46,11 +46,7 @@
 .btn{
     height: 20px;
     width: 180px;
-}
-.opc{
-     margin-top: 40px;
-}
-.conect{
+    margin-top: 40px;
     margin-bottom: 40px;
 }
 .name{
