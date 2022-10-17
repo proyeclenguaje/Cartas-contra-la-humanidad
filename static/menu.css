@@ -53,36 +53,4 @@
     font-size: 20px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-.header{
-    width: 180px;
-    height: 20px;
-    border: 1px solid #000;
-    border-radius: 10px;
-    background-color: #888;
-}
-ul,ol{
-    list-style: none;
-}
- li a{
-    background-color: #888;
-    text-decoration: none;
-    color: #000;
-    margin-top: -10px;
-    display: block;
-}
-.opc>li{
-    float: left;
-}
-.opc li ul{
-    display: none;
-    position: absolute;
-    min-width: 100px;
-}
-.opc li:hover > ul{
-    display: block;
-}
-.opc li ul li{
-    position: relative;
-    right: -80px;
-    top: 0px;
-}
+

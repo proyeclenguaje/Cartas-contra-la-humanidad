@@ -1,0 +1,12 @@
+{% extends './layout.html' %}
+{% block title%}Menu{%endblock%}
+{% block css%}<link rel="stylesheet" href="{{ url_for('static',filename='submenu.css') }}">{%endblock%}
+{% block js %}<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.3/socket.io.js"></script>{% endblock %}
+{% block body %} 
+    <div class="container">
+        
+    </div>
+    {% block script %}
+    <script src="{{ url_for('static',filename='submenu.js') }}"></script>
+    {% endblock %}
+{% endblock %}

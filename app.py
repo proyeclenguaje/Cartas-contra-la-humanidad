@@ -19,20 +19,21 @@ name = ""
 cj = 0
 
 @app.route('/')
+@app.route('/menu.html')
+def menu():
+    return render_template('menu.html')
 @app.route('/login.html')
 def login():
     return render_template("login.html")
 @app.route('/register.html')
 def register():
     return render_template('register.html')
-@app.route('/menu.html')
-def menu():
-    return render_template('menu.html')
+@app.route('/submenu.html')
+def submenu():
+    return render_template('submenu.html')
 @app.route('/Player.html')
 def palyer():
-    if cj == 4:
-        return render_template("Player.html")
-
+    return render_template("Player.html")
 def obtener_login():
     cur = mysql.connection.cursor()
     cur.execute('SELECT name, pass FROM user')
@@ -66,10 +67,10 @@ def name(name,pasw,may):
     mysql.connection.commit()
     cursor.close()
 
-@socketio.on('aaa')
-def envio_name(msg):
-    print(msg)
-    socketio.emit('nameper',name)
+#@socketio.on('aaa')
+#def envio_name(msg):
+#    print(msg)
+#    socketio.emit('nameper',name)
 @socketio.on('contj')
 def conj(msg):
     global cj
