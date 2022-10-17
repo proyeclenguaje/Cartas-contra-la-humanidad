@@ -515,7 +515,7 @@ INSERT INTO `cartasn` (`id`, `content`, `may`) VALUES
 (57, 'Es una pena que los niños de ahora se involucren en _______________', 0),
 (58, 'Ahora se prohibe _______________ en los aviones', 0),
 (59, 'En sus últimos momentos Michael Jackson pensó en _______________', 0),
-(60, 'Llame ya para adquirir un _______________ nuestras operadoras le están esperando',),
+(60, 'Llame ya para adquirir un _______________ nuestras operadoras le están esperando',);
 
 -- --------------------------------------------------------
 
