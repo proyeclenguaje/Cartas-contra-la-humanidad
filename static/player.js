@@ -2,17 +2,38 @@
 // const player2=
 // const player3=
 // const player4=
-const juez=1+Math.floor(Math.random()*4);
-contador =0;
 
+contador =0;
+var crono=document.getElementById("cro");
 window.setInterval(function(){
      contador=contador+1; 
      crono.innerHTML=contador 
 },1000)
-function envio()
-{
-    var conte= document.getElementById("C1");
+function envio(id,player)
+{   switch(player)
+    {
+    case 1:
+    C="C"+id;
+    P="player"+player;
+    var conte= document.getElementById(C);
     var con=conte.innerHTML
-    var cart=document.getElementById("player1");
-    cart.innerHTML=con;
+    var cart=document.getElementById(P);
+    cart.innerHTML=con;brake;
+    case 2:
+        C="C"+id;
+        P="player"+player;
+        var conte= document.getElementById(C);
+        var con=conte.innerHTML
+        var cart=document.getElementById(P);
+        cart.innerHTML=con;brake;
+        
+    case 3:
+        C="C"+id;
+        P="player"+player;
+        var conte= document.getElementById(C);
+        var con=conte.innerHTML
+        var cart=document.getElementById(P);
+        cart.innerHTML=con;brake;
+        
+    }
 }
