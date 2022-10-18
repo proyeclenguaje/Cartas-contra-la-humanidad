@@ -34,6 +34,11 @@ def submenu():
 @app.route('/Player.html')
 def palyer():
     return render_template("Player.html")
+
+@app.route('/Tabla_Ganadores.html')
+def Ganadores():
+    return render_template("Tabla_Ganadores.html")
+
 def obtener_login():
     cur = mysql.connection.cursor()
     cur.execute('SELECT name, pass FROM user')
