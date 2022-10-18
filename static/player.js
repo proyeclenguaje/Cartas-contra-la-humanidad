@@ -3,53 +3,31 @@
 // const player3=
 // const player4=
 aux=0;
-contador =56;
+contador =0;
 var crono=document.getElementById("cro");
-window.setInterval(function(){
+window.setInterval(()=>{
      if(contador==60 && aux==0){
-        contador=57
+        contador=0
         aux=1
         for (a=1;a<8;a++){
-        const btncompra = document.getElementById('C'+a);
-        btncompra.disabled = true;
+        const btnenvio = document.getElementById('C'+a).disabled = true;
         }
      }
-     if(contador==60 && aux==1)
-     {
-        window.location.href = '/Player.html';
-     }
+     if(contador==60 && aux==1){window.location.href = '/Player.html';}
      contador=contador+1;
-     
      crono.innerHTML=contador 
 },1000)
 function envio(id,player)
 {   switch(player)
     {
     case 1:
-    C="C"+id;
-    P="player"+player;
-    var conte= document.getElementById(C);
-    var con=conte.innerHTML
-    var cart=document.getElementById(P);
-    cart.innerHTML=con;brake;
+        var conte=document.getElementById("C"+id).innerHTML;
+        var cart=document.getElementById("player"+player);cart.innerHTML=conte;brake;
     case 2:
-        C="C"+id;
-        P="player"+player;
-        var conte= document.getElementById(C);
-        var con=conte.innerHTML
-        var cart=document.getElementById(P);
-        cart.innerHTML=con;brake;
-        
+        var conte= document.getElementById("C"+id).innerHTML;
+        var cart=document.getElementById("player"+player);cart.innerHTML=conte;brake;   
     case 3:
-        C="C"+id;
-        P="player"+player;
-        var conte= document.getElementById(C);
-        var con=conte.innerHTML
-        var cart=document.getElementById(P);
-        cart.innerHTML=con;brake;
-        
-    }
-    function juez(){
-   
-    }
+        var conte= document.getElementById("C"+id).innerHTML;
+        var cart=document.getElementById("player"+player);cart.innerHTML=conte;brake;
+    }    
 }
