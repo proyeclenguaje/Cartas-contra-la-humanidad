@@ -2,7 +2,6 @@
     display:flex ;
     justify-content: center;
     align-items: center;
-    background-color: #999;
     height: 100vh;
     width: 100%;
 }
@@ -14,6 +13,7 @@
     align-items: center;
     /*padding: 30px;
     margin: 20px;*/
+    margin-bottom:-100px;
     height: 400px;
     width: 400px;
     background-color: #ffe;
@@ -54,3 +54,9 @@
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
+.grid-block{
+    background-image: url('img/design_login/background_design.jpg');
+    background-repeat: no-repeat;
+    height: 120vh;
+    width: 100%; 
+}

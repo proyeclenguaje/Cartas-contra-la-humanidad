@@ -3,7 +3,10 @@
 {% block css%}<link rel="stylesheet" href="{{ url_for('static',filename='estilos.css') }}">{%endblock%}
 {% block js %}<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.3/socket.io.js"></script>{% endblock %}
 {% block body %} 
-    <div class="container">
+
+
+<div class="grid-block">
+<div class="container">
         <div class="logreg">
             <div class="cabecera a">
                 <h1 class="obj">Iniciar Sesión</h1>
@@ -19,6 +22,7 @@
             </div>
         </div>
     </div>
+</div>
     {%block script %}
     <script src="{{ url_for('static',filename='login.js') }}"></script>
    
