@@ -24,6 +24,11 @@ span.Negra{
     align-content:flex-end;
     height: 500px;
     width: 1600px;
+    background-image: url('img/player/carts_design1.jpg'); 
+    height: 450px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     background-color: #fff;
     padding: 15px;
     border: 4px solid #000;
