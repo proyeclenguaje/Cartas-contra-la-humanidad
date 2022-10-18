@@ -2,11 +2,24 @@
 // const player2=
 // const player3=
 // const player4=
-
-contador =0;
+aux=0;
+contador =56;
 var crono=document.getElementById("cro");
 window.setInterval(function(){
-     contador=contador+1; 
+     if(contador==60 && aux==0){
+        contador=57
+        aux=1
+        for (a=1;a<8;a++){
+        const btncompra = document.getElementById('C'+a);
+        btncompra.disabled = true;
+        }
+     }
+     if(contador==60 && aux==1)
+     {
+        window.location.href = '/Player.html';
+     }
+     contador=contador+1;
+     
      crono.innerHTML=contador 
 },1000)
 function envio(id,player)
@@ -35,5 +48,8 @@ function envio(id,player)
         var cart=document.getElementById(P);
         cart.innerHTML=con;brake;
         
+    }
+    function juez(){
+   
     }
 }
