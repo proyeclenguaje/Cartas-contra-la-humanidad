@@ -1,5 +1,4 @@
 *{
-    background: #0776;
     font-size: 14px;
 }
 span{
@@ -72,6 +71,11 @@ span.Negra{
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: url('img/player/design_mesa1.jpg');
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .C1, .C2, .C3, .C4, .C5, .C6, .C7 {
@@ -89,4 +93,10 @@ span.Negra{
     background: rgb(255, 255, 255);
     border: 1px solid #000;
     border-radius: 7px;
+    margin-top: 230px;
  }
+ p{
+    margin: auto
+    ;
+ }
+ 
