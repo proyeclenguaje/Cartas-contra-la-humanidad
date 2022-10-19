@@ -53,7 +53,10 @@
     font-size: 20px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-
+a{
+    text-decoration: none;
+    color: #000;;
+}
 .grid-block{
     background-image: url('img/design_login/background_design.jpg');
     background-repeat: no-repeat;

@@ -17,17 +17,11 @@
                     <p class="may">Eres mayor a 18 años</p><input type="checkbox" class="check">
                 </div>
                 <div class="boton a">
-                    <button type="submit" class="obj register">Registrarse</button>
+                    <button type="submit" class="obj register"> <a href="/login.html"> Registrarse</a></button>
                     <p>Ya tienes una cuenta <a href="/login.html" class="login">Iniciar Sesión</a></p>
                 </div>
         </div>
     </div>
 </div>  
-    {% block script %}
-    
-    <script src="{{ url_for('static',filename='register.js') }}"></script>
-    
-    
-    {% endblock %}
 {% endblock %}
 

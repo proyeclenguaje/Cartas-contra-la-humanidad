@@ -1,7 +1,6 @@
 {% extends './layout.html' %}
 {% block title%}Menu{%endblock%}
 {% block css%}<link rel="stylesheet" href="{{ url_for('static',filename='menu.css') }}">{%endblock%}
-{% block js %}<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.3/socket.io.js"></script>{% endblock %}
 {% block body %} 
 
 <div class="grid-block">
@@ -9,11 +8,13 @@
         <div class="menu">
             <div class="cabecera df">
                 <h1 class="title">Menú</h1>
-                <p class="name"></p>
+                <p class="name">{{nombre}}</p>
             </div>
             <div class="botones df">
-                <button class="opc btn">Opciones</button>
-                <button class="conect btn">Conectar</button>
+                <button class="opc btn"><a href="/submenu.html">Opciones</a> </button>
+                <form action="/jugadores" method="POST" class="botones">
+                    <button class="conect btn">Conectar</button>
+                </form>
             </div>
             <div class="login-out df">
                 <a href="/login.html">Cerrar Sesión</a>
@@ -21,7 +22,4 @@
         </div>
     </div>
 </div>
-    {% block script %}
-    <script src="{{ url_for('static',filename='menu.js') }}"></script>
-    {% endblock %}
 {% endblock %}

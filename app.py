@@ -1,7 +1,8 @@
-from socket import socket
-from flask import Flask, render_template, request, redirect, url_for
+from operator import truediv
+from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_mysqldb import MySQL
 from flask_socketio import SocketIO
+from pkg_resources import require
 
 
 app = Flask(__name__)
@@ -15,8 +16,7 @@ app.config['MYSQL_DB'] = 'cartas'
 
 mysql = MySQL(app)
 
-name = ""
-cj = 0
+contador_jugadores = 3
 
 @app.route('/')
 @app.route('/login.html')
@@ -25,60 +25,56 @@ def login():
 @app.route('/register.html')
 def register():
     return render_template('register.html')
-@app.route('/menu.html')
-def menu():
-    return render_template('menu.html')
 @app.route('/submenu.html')
 def submenu():
     return render_template('submenu.html')
-@app.route('/Player.html')
-def palyer():
-    return render_template("Player.html")
+@app.route('/menu.html')
+def menu():
+    return render_template('menu.html')
 
-@app.route('/Ganadores.html')
-def Ganadores():
-    return render_template("Ganadores.html")
+@app.route('/sesion',methods = ['POST'])
+def sesion():
+    bandn = True
+    bandp = True
+    global contador_jugadores
+    if request.method == 'POST':
+        name = request.form['nombre']
+        pasw = request.form['pass']
+        cur = mysql.connection.cursor()
+        cur.execute('SELECT name,pass FROM user')
+        data = cur.fetchall()
+        cur.close()
+        for i in data:
+            if name in i:
+                bandn = True
+                break
+            else:
+                bandn = False
+        for j in data:
+            if pasw in j:
+                bandp = True
+                break
+            else:
+                bandp = False
 
-def obtener_login():
-    cur = mysql.connection.cursor()
-    cur.execute('SELECT name, pass FROM user')
-    data = cur.fetchall()
-    cur.close()
-    return data
-    
-@socketio.on('name')
-def name(msg):
-    data = obtener_login()
-    for i in data:
-        if msg in i:
-            global name
-            name = msg
-            socketio.emit('confirmname',True)
+        if bandn == True:
+            if bandp == True:
+                if contador_jugadores < 4:
+                    contador_jugadores = contador_jugadores + 1
+                print(contador_jugadores)
+                return render_template('menu.html',nombre = name)
+            else:
+                flash('Nombre o contraseña incorrecto')
+                return redirect(url_for('login'))
         else:
-            socketio.emit('errn',True)
-@socketio.on('pass')
-def passw(msg):
-    data = obtener_login()
-    for i in data:
-        if msg in i:
-            socketio.emit('confirmpass',True)
-        else:
-            socketio.emit('errp',True)
+            flash('Nombre o contraseña incorrecto')
+            return redirect(url_for('login'))
 
-@socketio.on('regis')
-def name(name,pasw,may):
-    cursor = mysql.connection.cursor()
-    cursor.execute("INSERT INTO user (name,pass,may) VALUES (%s,%s,%s)", [name,pasw,may])
-    mysql.connection.commit()
-    cursor.close()
-
-@socketio.on('aaa')
-def envio_name(msg):
-    print(msg)
-    socketio.emit('nameper',name)
-@socketio.on('contj')
-def conj(msg):
-    global cj
-    cj = cj + msg
+@app.route('/jugadores',methods = ['POST'])
+def jugadores():
+    if contador_jugadores == 4:
+        return render_template('Player.html')
+    else:
+        return redirect(url_for('menu'))
 if __name__ == '__main__':
     socketio.run(app,debug=True,port=5000)
