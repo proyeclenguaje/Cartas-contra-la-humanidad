@@ -1,9 +1,6 @@
-from operator import truediv
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_mysqldb import MySQL
 from flask_socketio import SocketIO
-from pkg_resources import require
-
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'asdf34325'
@@ -31,7 +28,6 @@ def submenu():
 @app.route('/menu.html')
 def menu():
     return render_template('menu.html')
-
 @app.route('/sesion',methods = ['POST'])
 def sesion():
     bandn = True
@@ -56,7 +52,6 @@ def sesion():
                 break
             else:
                 bandp = False
-
         if bandn == True:
             if bandp == True:
                 if contador_jugadores < 4:
@@ -76,9 +71,6 @@ def jugadores():
         return render_template('Player.html')
     else:
         return redirect(url_for('menu'))
-
-
-
 
 if __name__ == '__main__':
     socketio.run(app,debug=True,port=5000)
