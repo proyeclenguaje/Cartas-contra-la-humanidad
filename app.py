@@ -76,5 +76,9 @@ def jugadores():
         return render_template('Player.html')
     else:
         return redirect(url_for('menu'))
+
+
+
+
 if __name__ == '__main__':
     socketio.run(app,debug=True,port=5000)
