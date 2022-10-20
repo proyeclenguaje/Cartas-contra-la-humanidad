@@ -70,7 +70,7 @@ def jugadores():
     if contador_jugadores == 4:
         return render_template('Player.html')
     else:
-        return redirect(url_for('sala_de_espera'))
+        return redirect(url_for('preloader'))
 
 if __name__ == '__main__':
     socketio.run(app,debug=True,port=5000)
