@@ -13,7 +13,7 @@ window.setInterval(()=>{
         const btnenvio = document.getElementById('C'+a).disabled = true;
         }
      }
-     if(contador==60 && aux==1){window.location.href = '/Player.html';}
+    //  if(contador==60 && aux==1){window.location.href = '/Player.html';}
      contador=contador+1;
      crono.innerHTML=contador 
 },1000)
