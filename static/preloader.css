@@ -9,7 +9,7 @@ body{
     min-height: 100vh;
     text-align: center;
     /* background: #00ced1; */
-    background-image: url('img/design_login/background_design.jpg');
+    background-image: url('img/design_login/preloader.jpg');
 }
 .container{
     position: relative;
@@ -23,9 +23,9 @@ body{
     transform: scale(1.5);
 }
 .loader{
-    height: 50px;
+    /* height: 50px;
     width: 50px;
-    background: red;
+    background: red; */
     position: absolute;
     animation: rotate 3.5s linear infinite;
 }
@@ -70,24 +70,28 @@ body{
     top: 30px;
     height: 7px;
     width: 7px;
-    background: gray;
+    background: rgb(129, 119, 119);
     border-radius: 50%;
     position: relative;
 }
 .container .text{
     position: absolute;
-    color: #fff;
+    color: rgb(129, 119, 119);
     bottom: -85px;
+    margin-left: 65px;
     font-size: 25px;
     font-weight: 400;
     font-family: sans-serif;
 }
 .container .titulo{
+    margin: 10;
+    padding: 10;
     position: absolute;
-    color: #fff;
+    color: rgb(40, 44, 39);
     bottom: 65px;
     margin-left: 65px;
     font-size: 45px;
     font-weight: 500;
-    font-family: sans-serif;
+    font-family: serif;
+    /* font-family: sans-serif; */
 }
