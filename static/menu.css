@@ -4,6 +4,7 @@
     align-items: center;
     height: 100vh;
     width: 100%;
+    font-family: 'Arial';
 }
 
 .menu{
@@ -51,7 +52,6 @@
 }
 .name{
     font-size: 20px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 a{
     text-decoration: none;
@@ -69,7 +69,7 @@ a{
     align-items: center;
     margin-bottom:-100px;
     height: 300px;
-    width: 300px;
+    width: 400px;
     background-color: #ffe;
     border: 1px solid #999;
     border-radius: 8px;
@@ -81,16 +81,34 @@ a{
 .a{
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    height: 80px;
 }
 p{
-    margin: 20px;
+    margin-right: 20px;
 }
-input{
-    margin-top: 20px;
+.input-color{
+    margin-top: 15px;
 }
 .tam{
     width: 40px;
     height: 20px;
-    margin-top: 20px;
+    margin-top: 17px;
     border-radius: 0%;
+}
+.font{
+    margin-top: 18px;
+    height: 20px;
+    width: 120px;
+}
+.p-font{
+    padding-right: 61px;
+}
+.p-tam{
+    padding-right: 51px;
+}
+.btn-aplicar{
+    width: 60px;
+    height: 20px;
 }

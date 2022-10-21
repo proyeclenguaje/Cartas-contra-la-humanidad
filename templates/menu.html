@@ -2,43 +2,65 @@
 {% block title%}Menu{%endblock%}
 {% block css%}<link rel="stylesheet" href="{{ url_for('static',filename='menu.css') }}">{%endblock%}
 {% block body %} 
-
-<div class="grid-block">
-    <div class="container">
-        <div class="menu disp">
-            <div class="cabecera df">
-                <h1 class="title">Menú</h1>
-                <p class="name">{{nombre}}</p>
+    <div class="grid-block">
+        <div class="container">
+            <div class="menu disp">
+                <div class="cabecera df">
+                    <h1 class="title">Menú</h1>
+                    <p class="name">{{nombre}}</p>
+                </div>
+                <div class="botones df">
+                    <button class="opc btn"><a href="/submenu.html">Opciones</a> </button>
+                    <form action="/jugadores" method="POST" class="botones">
+                        <button class="conect btn">Conectar</button>
+                    </form>
+                </div>
+                <div class="login-out df">
+                    <a href="/login.html">Cerrar Sesión</a>
+                </div>
             </div>
-            <div class="botones df">
-                <button class="opc btn"><a href="/submenu.html">Opciones</a> </button>
-                <form action="/jugadores" method="POST" class="botones">
-                    <button class="conect btn">Conectar</button>
-                </form>
+            <div class="submenu">
+                <div class="font-color a">
+                    <p class="p-font">Color de fuente</p>
+                    <input type="color" class="input-color">
+                </div>
+                <div class="font-tam a">
+                    <p class="p-tam">Tamaño de fuente</p>
+                    <select class="tam">
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="11">11</option>
+                        <option value="14">14</option>
+                        <option value="18">18</option>
+                        <option value="22">22</option>
+                        <option value="26">26</option>
+                    </select>
+                </div>
+                <div class="font-family a">
+                    <p class="p-family">Tipo de fuente</p>
+                    <select  class="font">
+                        <option value="Times New Roman">Times New Roman</option>
+                        <option value="Arial">Arial</option>
+                        <option value="Comic Sans">Comic Sans</option>
+                        <option value="Impact">Impact</option>
+                        <option value="Consolas">Consolas</option>
+                        <option value="Helvetica">Helvetica</option>
+                        <option value="Georgia">Georgia</option>
+                        <option value="Cambria">Cambria</option>
+                        <option value="Tahoma">Tahoma</option>
+                        <option value="Monaco">Monaco</option>
+                    </select>
+                </div>
+                <div class="aplicar">
+                    <button class="btn-aplicar">Aplicar</button>
+                </div>
+                <div class="text-prueba">
+                    <p class="p-prueba">Texto de prueba</p>
+                </div>
             </div>
-            <div class="login-out df">
-                <a href="/login.html">Cerrar Sesión</a>
-            </div>
-        </div>
-        <div class="submenu">
-            <div class="font-color a">
-                <p>Color de fuente</p>
-                <input type="color">
-            </div>
-            <div class="font-tam a">
-                <p>Tamaño de fuente</p>
-                <select class="tam">
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="11">11</option>
-                    <option value="14">14</option>
-                    <option value="18">18</option>
-                    <option value="22">22</option>
-                    <option value="26">26</option>
-                </select>
-            </div>
-
         </div>
     </div>
-</div>
+{% block scrip %}
+    <script src="{{ url_for('static',filename='menu.js') }}"></script>
+{% endblock %}
 {% endblock %}
