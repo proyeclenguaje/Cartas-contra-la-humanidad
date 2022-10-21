@@ -4,13 +4,13 @@
 {% block body %} 
     <div class="grid-block">
         <div class="container">
-            <div class="menu disp">
+            <div class="menu">
                 <div class="cabecera df">
                     <h1 class="title">Menú</h1>
                     <p class="name">{{nombre}}</p>
                 </div>
                 <div class="botones df">
-                    <button class="opc btn"><a href="/submenu.html">Opciones</a> </button>
+                    <button class="opc btn">Opciones</button>
                     <form action="/jugadores" method="POST" class="botones">
                         <button class="conect btn">Conectar</button>
                     </form>
@@ -19,7 +19,7 @@
                     <a href="/login.html">Cerrar Sesión</a>
                 </div>
             </div>
-            <div class="submenu">
+            <div class="submenu disp">
                 <div class="font-color a">
                     <p class="p-font">Color de fuente</p>
                     <input type="color" class="input-color">
@@ -56,6 +56,9 @@
                 </div>
                 <div class="text-prueba">
                     <p class="p-prueba">Texto de prueba</p>
+                </div>
+                <div class="atras_menu">
+                    <button class="atras">Atras</button>
                 </div>
             </div>
         </div>

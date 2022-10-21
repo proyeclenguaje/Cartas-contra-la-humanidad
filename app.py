@@ -22,9 +22,6 @@ def login():
 @app.route('/register.html')
 def register():
     return render_template('register.html')
-@app.route('/submenu.html')
-def submenu():
-    return render_template('submenu.html')
 @app.route('/menu.html')
 def menu():
     return render_template('menu.html')
