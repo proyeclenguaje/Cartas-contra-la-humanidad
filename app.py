@@ -13,7 +13,7 @@ app.config['MYSQL_DB'] = 'cartas'
 
 mysql = MySQL(app)
 
-contador_jugadores = 3
+contador_jugadores = 0
 
 @app.route('/')
 @app.route('/login.html')
@@ -25,6 +25,9 @@ def register():
 @app.route('/menu.html')
 def menu():
     return render_template('menu.html')
+@app.route('/preloader.html')
+def preloader():
+    return render_template('preloader.html')
 @app.route('/sesion',methods = ['POST'])
 def sesion():
     bandn = True
@@ -72,7 +75,7 @@ def registrar():
         cur = mysql.connection.cursor()
         cur.execute("INSERT INTO user (name,pass,may) VALUES (%s,%s,%s)",(name,pasw,may))
         mysql.connection.commit()
-        
+
         return redirect(url_for('login'))
 @app.route('/jugadores',methods = ['POST'])
 def jugadores():

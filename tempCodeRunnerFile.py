@@ -1,1 +1,0 @@
- may = request.form['check']
