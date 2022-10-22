@@ -62,6 +62,18 @@ def sesion():
             flash('Nombre o contraseña incorrecto')
             return redirect(url_for('login'))
 
+@app.route('/register',methods = ['POST'])
+def registrar():
+    if request.method == 'POST':
+        name = request.form['nombre']
+        pasw = request.form['pass']
+        may = request.form['check']
+
+        cur = mysql.connection.cursor()
+        cur.execute("INSERT INTO user (name,pass,may) VALUES (%s,%s,%s)",(name,pasw,may))
+        mysql.connection.commit()
+        
+        return redirect(url_for('login'))
 @app.route('/jugadores',methods = ['POST'])
 def jugadores():
     if contador_jugadores == 4:
