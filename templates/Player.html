@@ -4,7 +4,7 @@
 {% block css%}<link rel="stylesheet" href="{{ url_for('static',filename='Player_Area.css') }}">{%endblock%}
 {% block body %}
 
-<div class="Container">
+<div class="container">
     <div class="Entorno"> 
         <div class="Mesa">
         <div class="cronometro"><p id="cro">0</p></div>
@@ -30,6 +30,7 @@
         </div>
     </div>
 {% block script %}    
+    <script src="{{ url_for('static',filename='estilos.js') }}"></script>
     <script src="{{ url_for('static',filename='player.js') }}"></script>
 {% endblock %}
 </div>

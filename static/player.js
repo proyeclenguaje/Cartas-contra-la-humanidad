@@ -6,11 +6,11 @@ aux=0;
 contador =0;
 var crono=document.getElementById("cro");
 window.setInterval(()=>{
-     if(contador==60 && aux==0){
+     if(contador==15 && aux==0){
         contador=0
         aux=1
         for (a=1;a<8;a++){
-        const btnenvio = document.getElementById('C'+a).disabled = true;
+            const btnenvio = document.getElementById('C'+a).disabled = true;
         }
      }
     //  if(contador==60 && aux==1){window.location.href = '/Player.html';}

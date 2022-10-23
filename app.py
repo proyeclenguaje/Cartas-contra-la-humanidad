@@ -37,7 +37,7 @@ def menu():
 @app.route('/preloader.html')
 def preloader():
     return render_template('preloader.html')
-@app.route("/Player.html")
+@app.route('/Player.html')
 def player():
     return render_template('Player.html')
 @app.route('/sesion',methods = ['POST'])
@@ -65,7 +65,6 @@ def sesion():
             if bandp == True:
                 if contador_jugadores < 4:
                     contador_jugadores = contador_jugadores + 1
-                print(contador_jugadores)
                 return render_template('menu.html',nombre = name)
             else:
                 flash('Nombre o contraseña incorrecto')
@@ -97,9 +96,10 @@ def registrar():
             flash("Ya existe el nombre de usuario")
             return redirect(url_for("register"))
         
-@app.route('/jugadores',methods = ['POST'])
-def jugadores():
-    global jugadores_espera
-    jugadores_espera = jugadores_espera + 1
+#@app.route('/jugadores',methods = ['POST'])
+#def jugadores():
+ #   global jugadores_espera
+  #  jugadores_espera = jugadores_espera + 1
+   # return render_template('Player.html')
 if __name__ == '__main__':
     socketio.run(app,debug=True,port=5000)

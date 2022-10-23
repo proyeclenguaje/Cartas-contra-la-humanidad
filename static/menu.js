@@ -28,3 +28,17 @@ document.querySelector(".atras").addEventListener("click",()=>{
     document.querySelector(".menu").classList.remove("disp");
     document.querySelector(".submenu").classList.add("disp");
 });
+document.querySelector(".btn-aplicar").addEventListener("click",()=>{
+    document.cookie = `color = ${color_font.value}`;
+    document.cookie = `tam = ${tam_font.value}`;
+    document.cookie = `font = ${font_family.value}`;
+    obtenerCockie("color");
+    obtenerCockie("tam");
+    obtenerCockie("font");
+    cambiar();
+});
+cambiar();
+
+document.querySelector(".conect").addEventListener("click",()=>{
+    window.location.href = "/Player.html";
+});

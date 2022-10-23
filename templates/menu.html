@@ -1,7 +1,10 @@
 {% extends './layout.html' %}
 {% block title%}Menu{%endblock%}
 {% block css%}<link rel="stylesheet" href="{{ url_for('static',filename='menu.css') }}">{%endblock%}
-{% block js %}<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.3/socket.io.js"></script>{% endblock %}
+{% block js %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.3/socket.io.js"></script>
+    <script src="{{ url_for('static',filename='estilos.js') }}"></script>    
+{% endblock %}
 {% block body %} 
     <div class="grid-block">
         <div class="container">
@@ -12,10 +15,10 @@
                 </div>
                 <div class="botones df">
                     <button class="opc btn">Opciones</button>
-                    <form action="/jugadores" method="POST" class="botones">
+                    <!--<form action="/jugadores" method="POST" class="botones">-->
                         <input type="text" name="confirm" class="confirm" value = "no">
                         <button class="conect btn" >Conectar</button>
-                    </form>
+                    <!--</form>-->
                 </div>
                 <div class="login-out df">
                     <a href="/login.html">Cerrar Sesión</a>
