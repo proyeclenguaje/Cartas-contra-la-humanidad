@@ -14,8 +14,8 @@ app.config['MYSQL_DB'] = 'cartas'
 
 mysql = MySQL(app)
 
-contador_jugadores = 2
-jugadores_espera = 2
+contador_jugadores = 0
+jugadores_espera = 0
 nm = ""
 cartas = []
 def obtener():
@@ -42,19 +42,35 @@ def obtener_cartasn():
     cur.execute('SELECT content FROM cartasn')
     data = cur.fetchall()
     return data
-
 def rand_cartas():
-    data = obtener_cartasb()
-    content_cartas = []
-    for i in range(1,28):
-        content_cartas.append(secrets.choice(data))
-    return content_cartas
-
+    dato = obtener_cartasb()
+    data = []
+    band = True
+    for i in range(0,28):
+        content = secrets.choice(dato)
+        band = True
+        while band:
+            if content in data:
+                band = True
+                content = secrets.choice(dato)
+            else:
+                band = False
+                data.append(content)
+    return data
 def dar_cartas():
     cartas = rand_cartas()
     dar = []
+    band = True
     for i in range(0,7):
-        dar.append(secrets.choice(cartas))
+        content = secrets.choice(cartas)
+        band = True
+        while band:
+            if content in dar:
+                band = True
+                content = secrets.choice(cartas)
+            else:
+                band = False
+                dar.append(content)
     print(dar)
     return dar
 
