@@ -5,7 +5,7 @@
 aux=0;
 contador =0;
 var crono=document.getElementById("cro");
-window.setInterval(()=>{
+/*window.setInterval(()=>{
      if(contador==15 && aux==0){
         contador=0
         aux=1
@@ -16,7 +16,7 @@ window.setInterval(()=>{
     //  if(contador==60 && aux==1){window.location.href = '/Player.html';}
      contador=contador+1;
      crono.innerHTML=contador 
-},1000)
+},1000)*/
 function envio(id)
 {  
     var conte=document.getElementById("C"+id).innerHTML;

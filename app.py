@@ -14,9 +14,10 @@ app.config['MYSQL_DB'] = 'cartas'
 
 mysql = MySQL(app)
 
-contador_jugadores = 0
-jugadores_espera = 0
+contador_jugadores = 2
+jugadores_espera = 2
 nm = ""
+cartas = []
 def obtener():
     cur = mysql.connection.cursor()
     cur.execute('SELECT name,pass FROM user')
@@ -70,6 +71,10 @@ def menu():
 @app.route('/preloader.html')
 def preloader():
     return render_template('preloader.html')
+@app.route('/Player.html')
+def player():
+    cartas = dar_cartas()
+    return render_template('Player.html',cartasb=cartas)
 @app.route('/sesion',methods = ['POST'])
 def sesion():
     global nm
@@ -131,9 +136,11 @@ def registrar():
 @app.route('/jugadores',methods = ['POST'])
 def jugadores():
     global jugadores_espera
+    global cartas
     jugadores_espera = jugadores_espera + 1
     if jugadores_espera == 4:
         cartas = dar_cartas()
+        socketio.emit('cargar',cartas)
         return render_template('Player.html',cartasb = cartas)
     else:
         return redirect(url_for('preloader'))
