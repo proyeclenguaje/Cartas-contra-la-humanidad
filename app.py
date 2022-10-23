@@ -1,3 +1,4 @@
+from click import confirm
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_mysqldb import MySQL
 from flask_socketio import SocketIO
@@ -13,7 +14,15 @@ app.config['MYSQL_DB'] = 'cartas'
 
 mysql = MySQL(app)
 
-contador_jugadores = 0
+contador_jugadores = 3
+jugadores_espera = 3
+
+def obtener():
+    cur = mysql.connection.cursor()
+    cur.execute('SELECT name,pass FROM user')
+    data = cur.fetchall()
+    cur.close()
+    return data
 
 @app.route('/')
 @app.route('/login.html')
@@ -28,6 +37,9 @@ def menu():
 @app.route('/preloader.html')
 def preloader():
     return render_template('preloader.html')
+@app.route("/Player.html")
+def player():
+    return render_template('Player.html')
 @app.route('/sesion',methods = ['POST'])
 def sesion():
     bandn = True
@@ -36,10 +48,7 @@ def sesion():
     if request.method == 'POST':
         name = request.form['nombre']
         pasw = request.form['pass']
-        cur = mysql.connection.cursor()
-        cur.execute('SELECT name,pass FROM user')
-        data = cur.fetchall()
-        cur.close()
+        data = obtener()
         for i in data:
             if name in i:
                 bandn = True
@@ -67,22 +76,30 @@ def sesion():
 
 @app.route('/register',methods = ['POST'])
 def registrar():
+    bandn = False
     if request.method == 'POST':
         name = request.form['nombre']
         pasw = request.form['pass']
         may = request.form['check']
-
-        cur = mysql.connection.cursor()
-        cur.execute("INSERT INTO user (name,pass,may) VALUES (%s,%s,%s)",(name,pasw,may))
-        mysql.connection.commit()
-
-        return redirect(url_for('login'))
+        data = obtener()
+        for i in data:
+            if name in i:
+                bandn = False
+                break
+            else:
+                bandn = True
+        if bandn == True:
+            cur = mysql.connection.cursor()
+            cur.execute("INSERT INTO user (name,pass,may) VALUES (%s,%s,%s)",(name,pasw,may))
+            mysql.connection.commit()
+            return redirect(url_for('login'))
+        else:
+            flash("Ya existe el nombre de usuario")
+            return redirect(url_for("register"))
+        
 @app.route('/jugadores',methods = ['POST'])
 def jugadores():
-    if contador_jugadores == 4:
-        return render_template('Player.html')
-    else:
-        return redirect(url_for('preloader'))
-
+    global jugadores_espera
+    jugadores_espera = jugadores_espera + 1
 if __name__ == '__main__':
     socketio.run(app,debug=True,port=5000)

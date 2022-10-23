@@ -20,6 +20,15 @@
                         <button class="button" type="submit">Registrarse</button>
                     </form>
                 </div>
+                <div class="err a">
+                    <p>
+                        {% with messages = get_flashed_messages()  %}
+                        {% if messages %}
+                            {{messages}}
+                        {% endif %}
+                        {% endwith %}
+                    </p>
+                </div>
                 <div class="boton a">
                     <p>Ya tienes una cuenta <a href="/login.html" class="login">Iniciar Sesión</a></p>
                 </div>

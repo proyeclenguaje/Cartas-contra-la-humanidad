@@ -92,6 +92,6 @@ a{
     height: 120vh;
     width: 100%; 
 }
-.checkout{
+.checkout,.confirm{
     display: none;
 }

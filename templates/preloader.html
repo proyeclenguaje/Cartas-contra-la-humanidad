@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Cargando</title>
-     <link rel="stylesheet" href="{{ url_for('static',filename='preloader.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='preloader.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.3/socket.io.js"></script>
 </head>
 <body>
     <div class="container">
@@ -30,5 +31,6 @@
         </div>
         <div class="text">Esperando a que otros jugadores se unan...</div>
     </div>
+    <script src="{{ url_for('static',filename='preloader.js') }}"></script>
 </body>
 </html>
