@@ -8,7 +8,7 @@ const obtenerCockie = cockieName=>{
             return cookie.split("=")[1];
         }
     }
-}
+} 
 
 const cambiar = ()=>{
     document.querySelector(".container").style.color = obtenerCockie("color");

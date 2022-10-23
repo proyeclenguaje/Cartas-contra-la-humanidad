@@ -20,19 +20,18 @@
           <div class="puntos-player3">Puntos3</div>
         </div>
         <div class="ManoJugador">
-                <button class="C1" id="C1" onclick="envio(1,3)">Las cenizas de la abuela</button>
-                <button class="C2" id="C2" onclick="envio(2,2)">Desodorante Axe</button>
-                <button class="C3" id="C3" onclick="envio(3,1)">Gente Pobre</button>
-                <button class="C4" id="C4" onclick="envio(4,3)">confia en su perro</button>
-                <button class="C5" id="C5" onclick="envio(5,3)">Una explosion termonuclear</button>
-                <button class="C6" id="C6" onclick="envio(6,2)">Viejos japoneses</button>
-                <button class="C7" id="C7" onclick="envio(7,1)">La paz mundial</button>
+                <button class="C1" id="C1" onclick="envio(1)">{{cartasb.0}}</button>
+                <button class="C2" id="C2" onclick="envio(2)">{{cartasb.1}}</button>
+                <button class="C3" id="C3" onclick="envio(3)">{{cartasb.2}}</button>
+                <button class="C4" id="C4" onclick="envio(4)">{{cartasb.3}}</button>
+                <button class="C5" id="C5" onclick="envio(5)">{{cartasb.4}}</button>
+                <button class="C6" id="C6" onclick="envio(6)">{{cartasb.5}}</button>
+                <button class="C7" id="C7" onclick="envio(7)">{{cartasb.6}}</button>
         </div>
     </div>
+</div>
 {% block script %}    
     <script src="{{ url_for('static',filename='estilos.js') }}"></script>
     <script src="{{ url_for('static',filename='player.js') }}"></script>
 {% endblock %}
-</div>
-  
 {% endblock %}

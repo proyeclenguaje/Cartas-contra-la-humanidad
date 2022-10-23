@@ -17,17 +17,8 @@ window.setInterval(()=>{
      contador=contador+1;
      crono.innerHTML=contador 
 },1000)
-function envio(id,player)
-{   switch(player)
-    {
-    case 1:
-        var conte=document.getElementById("C"+id).innerHTML;
-        var cart=document.getElementById("player"+player);cart.innerHTML=conte;brake;
-    case 2:
-        var conte= document.getElementById("C"+id).innerHTML;
-        var cart=document.getElementById("player"+player);cart.innerHTML=conte;brake;   
-    case 3:
-        var conte= document.getElementById("C"+id).innerHTML;
-        var cart=document.getElementById("player"+player);cart.innerHTML=conte;brake;
-    }    
+function envio(id)
+{  
+    var conte=document.getElementById("C"+id).innerHTML;
+    var cart=document.getElementById("player3");cart.innerHTML=conte;brake;   
 }

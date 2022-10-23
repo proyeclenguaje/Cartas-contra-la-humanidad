@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_mysqldb import MySQL
 from flask_socketio import SocketIO
+import secrets
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'asdf34325'
@@ -15,13 +16,46 @@ mysql = MySQL(app)
 
 contador_jugadores = 3
 jugadores_espera = 3
-
+nm = ""
 def obtener():
     cur = mysql.connection.cursor()
     cur.execute('SELECT name,pass FROM user')
     data = cur.fetchall()
     cur.close()
     return data
+
+
+def obtener_cartasb():
+    may = mysql.connection.cursor()
+    may.execute('SELECT may FROM user WHERE name = %s',[nm])
+    datam = may.fetchall()
+    may.close()
+    cur = mysql.connection.cursor()
+    cur.execute('SELECT content FROM cartasb WHERE may = %s',[datam])
+    data = cur.fetchall()
+    cur.close()
+    return data
+
+def obtener_cartasn():
+    cur = mysql.connection.cursor()
+    cur.execute('SELECT content FROM cartasn')
+    data = cur.fetchall()
+    return data
+
+def rand_cartas():
+    data = obtener_cartasb()
+    content_cartas = []
+    for i in range(1,28):
+        content_cartas.append(secrets.choice(data))
+    return content_cartas
+
+def dar_cartas():
+    cartas = rand_cartas()
+    dar = []
+    for i in range(0,7):
+        dar.append(secrets.choice(cartas))
+    print(dar)
+    return dar
 
 @app.route('/')
 @app.route('/login.html')
@@ -38,6 +72,7 @@ def preloader():
     return render_template('preloader.html')
 @app.route('/sesion',methods = ['POST'])
 def sesion():
+    global nm
     bandn = True
     bandp = True
     global contador_jugadores
@@ -45,6 +80,7 @@ def sesion():
         name = request.form['nombre']
         pasw = request.form['pass']
         data = obtener()
+        nm = name
         for i in data:
             if name in i:
                 bandn = True
@@ -96,6 +132,8 @@ def registrar():
 def jugadores():
     global jugadores_espera
     jugadores_espera = jugadores_espera + 1
-    return render_template('Player.html')
+    cartas = dar_cartas()
+    return render_template('Player.html',cartasb = cartas)
+
 if __name__ == '__main__':
     socketio.run(app,debug=True,port=5000)
