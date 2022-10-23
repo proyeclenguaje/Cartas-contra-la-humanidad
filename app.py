@@ -14,8 +14,8 @@ app.config['MYSQL_DB'] = 'cartas'
 
 mysql = MySQL(app)
 
-contador_jugadores = 3
-jugadores_espera = 3
+contador_jugadores = 0
+jugadores_espera = 0
 nm = ""
 def obtener():
     cur = mysql.connection.cursor()
@@ -132,8 +132,11 @@ def registrar():
 def jugadores():
     global jugadores_espera
     jugadores_espera = jugadores_espera + 1
-    cartas = dar_cartas()
-    return render_template('Player.html',cartasb = cartas)
+    if jugadores_espera == 4:
+        cartas = dar_cartas()
+        return render_template('Player.html',cartasb = cartas)
+    else:
+        return redirect(url_for('preloader'))
 
 if __name__ == '__main__':
     socketio.run(app,debug=True,port=5000)
