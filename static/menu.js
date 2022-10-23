@@ -17,9 +17,6 @@ font_family.addEventListener("change",()=>{
     aplicar_boton.style.fontFamily = font_family.value;
 });
 
-document.querySelector(".btn-aplicar").addEventListener("click",()=>{
-});
-
 document.querySelector(".opc").addEventListener("click",()=>{
     document.querySelector(".submenu").classList.remove("disp");
     document.querySelector(".menu").classList.add("disp");
