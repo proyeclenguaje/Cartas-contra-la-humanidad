@@ -38,7 +38,3 @@ document.querySelector(".btn-aplicar").addEventListener("click",()=>{
     cambiar();
 });
 cambiar();
-
-document.querySelector(".conect").addEventListener("click",()=>{
-    window.location.href = "/Player.html";
-});
