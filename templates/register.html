@@ -10,18 +10,33 @@
                 <h1 class="obj">Registrarse</h1>
             </div>
                 <div class="inputs a">
-                    <input type="text" name="nombre" class="nombre obj" placeholder="Nombre">
-                    <input type="password" name="pass" class="pass obj" placeholder="Contraseña">
+                    <form action="/register" method="POST" class="inputs">
+                        <input type="text" name="nombre" class="nombre obj" autocomplete="off" placeholder="Nombre">
+                        <input type="password" name="pass" class="pass obj" autocomplete="off"  placeholder="Contraseña">
+                        <div class="may a">
+                            <p class="may">Eres mayor a 18 años</p><input type="checkbox" class="check">
+                        </div>
+                        <input type="text" name="check" class="checkout">
+                        <button class="button" type="submit">Registrarse</button>
+                    </form>
                 </div>
-                <div class="may a">
-                    <p class="may">Eres mayor a 18 años</p><input type="checkbox" class="check">
+                <div class="err a">
+                    <p>
+                        {% with messages = get_flashed_messages()  %}
+                        {% if messages %}
+                            {{messages}}
+                        {% endif %}
+                        {% endwith %}
+                    </p>
                 </div>
                 <div class="boton a">
-                    <button type="submit" class="obj register"> <a href="/login.html"> Registrarse</a></button>
                     <p>Ya tienes una cuenta <a href="/login.html" class="login">Iniciar Sesión</a></p>
                 </div>
         </div>
     </div>
 </div>  
+{% block script %}    
+    <script src="{{ url_for('static',filename='register.js') }}"></script>
+{% endblock %}
 {% endblock %}
 

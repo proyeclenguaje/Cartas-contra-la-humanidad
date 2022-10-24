@@ -17,13 +17,13 @@
                     </form>
                 </div>
                 <div class="err a">
-                    <p>
-                        {% with messages = get_flashed_messages()  %}
-                        {% if messages %}
-                            {{messages}}
-                        {% endif %}
-                        {% endwith %}
-                    </p>
+                    {% with messages = get_flashed_messages()  %}
+                    {% if messages %}
+                    {% for message in messages %}
+                        <p>{{messages}}</p>
+                    {% endfor %}
+                    {% endif %}
+                    {% endwith %}
                 </div>
                 <div class="boton a">
                     <p>No tienes una cuenta <div class="regis"><a href="/register.html" class="register">Registrarse</a></div></p>
