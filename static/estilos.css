@@ -87,10 +87,11 @@ a{
     color: #e4f;
 }
 .grid-block{
-    background-image: url('img/design_login/background_design.jpg');
-    background-repeat: no-repeat;
-    height: 120vh;
-    width: 100%; 
+    background: url('img/design_login/background_design.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 .checkout,.confirm{
     display: none;
