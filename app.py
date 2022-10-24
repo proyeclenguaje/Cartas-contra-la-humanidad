@@ -25,7 +25,6 @@ def obtener():
     cur.close()
     return data
 
-
 def obtener_cartasb():
     may = mysql.connection.cursor()
     may.execute('SELECT may FROM user WHERE name = %s',[nm])
@@ -42,6 +41,7 @@ def obtener_cartasn():
     cur.execute('SELECT content FROM cartasn')
     data = cur.fetchall()
     return data
+
 def rand_cartas():
     dato = obtener_cartasb()
     data = []
@@ -57,6 +57,7 @@ def rand_cartas():
                 band = False
                 data.append(content)
     return data
+
 def dar_cartas():
     cartas = rand_cartas()
     dar = []
