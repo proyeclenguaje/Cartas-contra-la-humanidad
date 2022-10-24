@@ -4,11 +4,12 @@
 // const player4=
 aux=0;
 contador =0;
-var crono=document.getElementById("cro");
+let crono=document.getElementById("cro");
 window.setInterval(()=>{
      if(contador==60 && aux==0){
         contador=0
         aux=1
+        
         for (a=1;a<8;a++){
         const btnenvio = document.getElementById('C'+a).disabled = true;
         }
@@ -30,4 +31,7 @@ function envio(id,player)
         var conte= document.getElementById("C"+id).innerHTML;
         var cart=document.getElementById("player"+player);cart.innerHTML=conte;brake;
     }    
+}
+function puntos(){
+    
 }
