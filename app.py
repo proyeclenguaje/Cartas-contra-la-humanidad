@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_mysqldb import MySQL
 from flask_socketio import SocketIO
 import secrets
+import random
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'asdf34325'
@@ -14,10 +15,10 @@ app.config['MYSQL_DB'] = 'cartas'
 
 mysql = MySQL(app)
 
-contador_jugadores = 0
-jugadores_espera = 0
+contador_jugadores = 3
+jugadores_espera = 3
 nm = ""
-cartas = []
+cartas = ()
 def obtener():
     cur = mysql.connection.cursor()
     cur.execute('SELECT name,pass FROM user')
@@ -48,6 +49,7 @@ def rand_cartas():
     band = True
     for i in range(0,28):
         content = secrets.choice(dato)
+        print(content)
         band = True
         while band:
             if content in data:
@@ -56,6 +58,7 @@ def rand_cartas():
             else:
                 band = False
                 data.append(content)
+    print("data",dato)
     return data
 
 def dar_cartas():
