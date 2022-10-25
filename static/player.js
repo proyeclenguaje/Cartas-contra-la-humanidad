@@ -17,9 +17,8 @@ let crono=document.getElementById("cro");
 },1000)*/
 function envio(id)
 {
-    
     var conte=document.getElementById("C"+id).innerHTML;
-    var cart=document.getElementById("player3");cart.innerHTML=conte;brake;
+    var cart=document.getElementById("player3");cart.innerHTML=conte;
 }
 function puntos(){
     
