@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-10-2022 a las 01:54:30
+-- Tiempo de generación: 25-10-2022 a las 04:33:01
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `cartasb` (
   `id` int(11) NOT NULL,
   `content` varchar(255) NOT NULL,
-  `may` tinyint(1) NOT NULL
+  `may` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -439,6 +439,7 @@ INSERT INTO `cartasb` (`id`, `content`, `may`) VALUES
 (399, 'Viejos japoneses', 0),
 (400, 'Gente blanca', 0);
 
+
 -- --------------------------------------------------------
 
 --
@@ -448,7 +449,7 @@ INSERT INTO `cartasb` (`id`, `content`, `may`) VALUES
 CREATE TABLE `cartasn` (
   `id` int(11) NOT NULL,
   `content` varchar(255) NOT NULL,
-  `may` tinyint(1) NOT NULL
+  `may` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -516,7 +517,6 @@ INSERT INTO `cartasn` (`id`, `content`, `may`) VALUES
 (58, 'Ahora se prohibe _______________ en los aviones', 0),
 (59, 'En sus últimos momentos Michael Jackson pensó en _______________', 0),
 (60, 'Llame ya para adquirir un _______________ nuestras operadoras le están esperando', 0);
-
 -- --------------------------------------------------------
 
 --
@@ -527,8 +527,11 @@ CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `pass` varchar(255) NOT NULL,
-  `may`  varchar(255) NOT NULL
+  `may` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO `user` (`id`, `name`, `pass`,`may`) VALUES
+(1, 'Imanol','Imanol', 1);
 
 --
 -- Índices para tablas volcadas
@@ -560,13 +563,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT de la tabla `cartasb`
 --
 ALTER TABLE `cartasb`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=401;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `cartasn`
 --
 ALTER TABLE `cartasn`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `user`
