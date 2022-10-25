@@ -1,7 +1,4 @@
-// const player1=
-// const player2=
-// const player3=
-// const player4=
+const socket = io()
 aux=0;
 contador =0;
 let crono=document.getElementById("cro");
@@ -27,3 +24,9 @@ function envio(id)
 function puntos(){
     
 }
+
+socket.emit('pedirCartas',"hola");
+
+socket.on('envioCartas',msg=>{
+    document.querySelector(".Negra").innerHTML = msg;
+});

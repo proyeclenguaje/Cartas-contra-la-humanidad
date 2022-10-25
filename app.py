@@ -43,13 +43,12 @@ def obtener_cartasn():
     data = cur.fetchall()
     return data
 
-def rand_cartas():
+def rand_cartasb():
     dato = obtener_cartasb()
     data = []
     band = True
     for i in range(0,28):
         content = secrets.choice(dato)
-        print(content)
         band = True
         while band:
             if content in data:
@@ -58,11 +57,10 @@ def rand_cartas():
             else:
                 band = False
                 data.append(content)
-    print("data",dato)
     return data
 
 def dar_cartas():
-    cartas = rand_cartas()
+    cartas = rand_cartasb()
     dar = []
     band = True
     for i in range(0,7):
@@ -75,8 +73,22 @@ def dar_cartas():
             else:
                 band = False
                 dar.append(content)
-    print(dar)
     return dar
+def rand_cartasn():
+    dato = obtener_cartasn()
+    data = []
+    band = True
+    for i in range(0,7):
+        content = secrets.choice(dato)
+        band = True
+        while band:
+            if content in data:
+                band = True
+                content = secrets.choice(dato)
+            else:
+                band = False
+                data.append(content)
+    return data
 
 @app.route('/')
 @app.route('/login.html')
@@ -164,6 +176,11 @@ def jugadores():
         return render_template('Player.html',cartasb = cartas)
     else:
         return redirect(url_for('preloader'))
+
+@socketio.on('pedirCartas')
+def pedirCartas(msg):
+    cartas = rand_cartasn()
+    socketio.emit('envioCartas',cartas[0][0])
 
 if __name__ == '__main__':
     socketio.run(app,debug=True,port=5000)

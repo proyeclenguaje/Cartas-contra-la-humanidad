@@ -2,13 +2,17 @@
 
 {% block title%} Cartas contra la humanidad {%endblock%}
 {% block css%}<link rel="stylesheet" href="{{ url_for('static',filename='Player_Area.css') }}">{%endblock%}
+{% block js %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.3/socket.io.js"></script>
+    <script src="{{ url_for('static',filename='estilos.js') }}"></script>    
+{% endblock %}
 {% block body %}
 
 <div class="container">
     <div class="Entorno"> 
         <div class="Mesa">
             <div class="cronometro"><p id="cro">0</p></div>
-            <div class="Carta" id="Negra"><p  class="Negra">¿Que es lo mas crujiente?</p></div>
+            <div class="Carta" id="Negra"><p class="Negra"></p></div>
             <div class="Carta1" ><p id="player1" onclick="puntos()"></p></div>
             <div class="Carta2"><p id="player2" onclick="puntos()"></p></div>
             <div class="Carta3"><p id="player3" onclick="puntos()"></p></div>
