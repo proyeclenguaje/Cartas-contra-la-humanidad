@@ -1,7 +1,7 @@
 *{
     font-size: 14px;
 }
-span{
+/*span{
     background: #fff;
     box-sizing: content-box;
     width: 100%;
@@ -11,7 +11,7 @@ span.Negra{
     background: #000;width: 100%;
     color: #fff;
     box-sizing: border-box;
-}
+}*/
 
 .container{
     display: flex;
@@ -46,12 +46,14 @@ span.Negra{
     color: #fff;
 }
 .cronometro>p{font-size: 30px;}
+.Negra{
+    color: #fff;
+}
 .Carta1{grid-column-start: 2;grid-row-start: 2;}
 .Carta2{grid-column-start: 3;grid-row-start: 2;}
 .Carta3{grid-column-start: 4;grid-row-start: 2;}
 .Carta1,.Carta2,.Carta3{
     padding: 10px;
-    color: #000;
     display: inline-block;
     font-family: sans-serif;
     font-size: 20px;
@@ -76,7 +78,6 @@ span.Negra{
     margin-right: 180px;
     margin-left: 0px;
     word-wrap: break-word;
-    color: #fff;
     row-gap: 6px;
 }
 

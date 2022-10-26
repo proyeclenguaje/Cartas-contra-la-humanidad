@@ -10,9 +10,8 @@ const obtenerCockie = cockieName=>{
     }
 } 
 
-const cambiar = ()=>{
-    document.querySelector(".container").style.color = obtenerCockie("color");
-    document.querySelector(".container").style.fontSize = obtenerCockie("tam") + "px";
-    document.querySelector(".container").style.fontFamily = obtenerCockie("font");
+const cambiar = (nombreDiv)=>{
+    document.querySelector(`.${nombreDiv}`).style.color = obtenerCockie("color");
+    document.querySelector(`.${nombreDiv}`).style.fontSize = obtenerCockie("tam") + "px";
+    document.querySelector(`.${nombreDiv}`).style.fontFamily = obtenerCockie("font");
 }
-cambiar();

@@ -27,5 +27,8 @@ function puntos(){
 socket.emit('pedirCartas',"hola");
 
 socket.on('envioCartas',msg=>{
-    document.querySelector(".Negra").innerHTML = msg;
+    document.querySelector(".Negra").innerHTML = msg[0][0];
 });
+
+cambiar("Mesa");
+cambiar("ManoJugador");

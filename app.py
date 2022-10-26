@@ -179,7 +179,7 @@ def jugadores():
 @socketio.on('pedirCartas')
 def pedirCartas(msg):
     cartas = rand_cartasn()
-    socketio.emit('envioCartas',cartas[0][0])
+    socketio.emit('envioCartas',cartas)
 
 if __name__ == '__main__':
     socketio.run(app,debug=True,port=5000)

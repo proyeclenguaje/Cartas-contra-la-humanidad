@@ -29,9 +29,6 @@ document.querySelector(".btn-aplicar").addEventListener("click",()=>{
     document.cookie = `color = ${color_font.value}`;
     document.cookie = `tam = ${tam_font.value}`;
     document.cookie = `font = ${font_family.value}`;
-    obtenerCockie("color");
-    obtenerCockie("tam");
-    obtenerCockie("font");
-    cambiar();
+    cambiar("container");
 });
-cambiar();
+cambiar("container");
