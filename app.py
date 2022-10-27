@@ -1,3 +1,4 @@
+from unicodedata import name
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_mysqldb import MySQL
 from flask_socketio import SocketIO
@@ -14,10 +15,14 @@ app.config['MYSQL_DB'] = 'cartas'
 
 mysql = MySQL(app)
 
-contador_jugadores = 3
-jugadores_espera = 3
+contador_jugadores = 0
+jugadores_espera = 0
 nm = ""
+arnm = []
 cartas = ()
+name = []
+
+
 def obtener():
     cur = mysql.connection.cursor()
     cur.execute('SELECT name,pass FROM user')
@@ -104,8 +109,10 @@ def preloader():
     return render_template('preloader.html')
 @app.route('/Player.html')
 def player():
+    nj = name[0]
+    name.pop(0)
     cartas = dar_cartas()
-    return render_template('Player.html',cartasb=cartas)
+    return render_template('Player.html',cartasb=cartas,nombre = nj)
 @app.route('/sesion',methods = ['POST'])
 def sesion():
     global nm
@@ -116,7 +123,6 @@ def sesion():
         name = request.form['nombre']
         pasw = request.form['pass']
         data = obtener()
-        nm = name
         for i in data:
             if name in i:
                 bandn = True
@@ -132,6 +138,8 @@ def sesion():
         if bandn == True:
             if bandp == True:
                 if contador_jugadores < 4:
+                    nm = name
+                    arnm.append(name)
                     contador_jugadores = contador_jugadores + 1
                 return render_template('menu.html',nombre = name)
             else:
@@ -167,12 +175,19 @@ def registrar():
 @app.route('/jugadores',methods = ['POST'])
 def jugadores():
     global jugadores_espera
+    global contador_jugadores
     global cartas
+    global name
+    nn = request.form['nm']
+    name.append(nn)
+    print(name)
     jugadores_espera = jugadores_espera + 1
     if jugadores_espera == 4:
         cartas = dar_cartas()
         socketio.emit('cargar',cartas)
-        return render_template('Player.html',cartasb = cartas)
+        jugadores_espera = 0
+        contador_jugadores = 0
+        return render_template('Player.html',cartasb = cartas,nombre=nn)
     else:
         return redirect(url_for('preloader'))
 
@@ -180,6 +195,7 @@ def jugadores():
 def pedirCartas(msg):
     cartas = rand_cartasn()
     socketio.emit('envioCartas',cartas)
+    socketio.emit('envioName',arnm)
 
 if __name__ == '__main__':
     socketio.run(app,debug=True,port=5000)

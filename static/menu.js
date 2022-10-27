@@ -1,3 +1,4 @@
+const socket = io()
 const color_font = document.querySelector(".input-color");
 const tam_font = document.querySelector(".tam");
 const font_family = document.querySelector(".font");
