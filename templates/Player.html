@@ -8,34 +8,32 @@
 {% endblock %}
 {% block body %}
 
+<input type="text" value={{nombre}} class="ac">
+<input type="text" value={{prij}} class="ab">
+
 <div class="container">
     <div class="Entorno"> 
         <div class="Mesa">
-            <div id="jugadorid" style="display: none;" >{{Id}}</div>
-            <div id="jugador1" style="display: none;">{{nombre.0}}</div>
-            <div id="jugador2" style="display: none;">{{nombre.1}}</div>
-            <div id="jugador3" style="display: none;">{{nombre.2}}</div>
-            <div id="jugador4" style="display: none;">{{nombre.3}}</div>
             <div class="cronometro"><p id="cro">0</p></div>
             <div class="Carta" id="Negra"><p class="Negra"></p></div>
-            <div class="Carta1" disabled="true"><p id="player1" onclick="puntos(1)"></p></div>
-            <div class="Carta2" disabled="true"><p id="player2" onclick="puntos(2)"></p></div>
-            <div class="Carta3" disabled="true"><p id="player3" onclick="puntos(3)"></p></div>
-            <div class="name-player1" id="Name-player1"></div>
-            <div class="name-player2" id="Name-player2"></div>
-            <div class="name-player3" id="Name-player3"></div>
-            <div class="puntos-player1" id="Puntos1">0</div>
-            <div class="puntos-player2" id="Puntos2">0</div>
-            <div class="puntos-player3" id="Puntos3">0</div>
+            <div class="Carta1" ><p id="player1" onclick="puntos()">La abuelita</p></div>
+            <div class="Carta2"><p id="player2" onclick="puntos()">Desayunar con la reina</p></div>
+            <div class="Carta3"><p id="player3" onclick="puntos()"></p></div>
+            <div class="name-player1">Juanito</div>
+            <div class="name-player2">Francisco</div>
+            <div class="name-player3"></div>
+            <div class="puntos-player1">Puntos1</div>
+            <div class="puntos-player2">Puntos2</div>
+            <div class="puntos-player3">Puntos3</div>
         </div>
         <div class="ManoJugador">
-                <button class="C1" id="C1" onclick="envio(1)">{{cartasb.0.0}}</button>
-                <button class="C2" id="C2" onclick="envio(2)">{{cartasb.1.0}}</button>
-                <button class="C3" id="C3" onclick="envio(3)">{{cartasb.2.0}}</button>
-                <button class="C4" id="C4" onclick="envio(4)">{{cartasb.3.0}}</button>
-                <button class="C5" id="C5" onclick="envio(5)">{{cartasb.4.0}}</button>
-                <button class="C6" id="C6" onclick="envio(6)">{{cartasb.5.0}}</button>
-                <button class="C7" id="C7" onclick="envio(7)">{{cartasb.6.0}}</button>
+                <button class="C1 cc" id="C1" onclick="envio(1)">{{cartasb.0.0}}</button>
+                <button class="C2 cc" id="C2" onclick="envio(2)">{{cartasb.1.0}}</button>
+                <button class="C3 cc" id="C3" onclick="envio(3)">{{cartasb.2.0}}</button>
+                <button class="C4 cc" id="C4" onclick="envio(4)">{{cartasb.3.0}}</button>
+                <button class="C5 cc" id="C5" onclick="envio(5)">{{cartasb.4.0}}</button>
+                <button class="C6 cc" id="C6" onclick="envio(6)">{{cartasb.5.0}}</button>
+                <button class="C7 cc" id="C7" onclick="envio(7)">{{cartasb.6.0}}</button>
         </div>
     </div>
 </div>

@@ -1,109 +1,107 @@
 const socket = io()
-let rondas=1;
-var aux=0,comple, crono=document.getElementById("cro");
-contador =55;
+aux=0;
+contador =0;
 let nm=[]
-////////////////////////////////////////////////////////
-const jugadorid=document.getElementById("jugadorid").innerHTML
-let jugador=[document.getElementById("jugador1").innerHTML,document.getElementById("jugador2").innerHTML,document.getElementById("jugador3").innerHTML,document.getElementById("jugador4").innerHTML]
-console.log(jugador[0],jugador[1],jugador[2],jugador[3])
-window.setInterval(()=>{ 
-    if(contador==60 && aux==0){
-        contador=55
-        aux=1
-        if(rondas==1){
-            if(jugadorid==1){}
-        }
-        for (a=1;a<8;a++){
-        const btnenvio = document.getElementById('C'+a).disabled = true;
-        }
-     }
-    if(contador==60 && aux==1){contador=55;aux=0;rondas++;
-        for (a=1;a<8;a++){const btnenvio = document.getElementById('C'+a).disabled = false;}
-    }
-     contador=contador+1;
-     crono.innerHTML=contador;
-     if(rondas==5){clearInterval;alert("Fin del juego")}
-},1000)
-switch (rondas) {
-    case 1:if(jugadorid==1){ for (a=1;a<8;a++){const btnenvio = document.getElementById('C'+a).disabled = true;for (let index = 0; index < 3; index++) {var cont=document.getElementById("Name-player"+(index+1));cont.innerHTML=jugador[index+1];}}}else{
-        for (let index = 0; index < 3; index++) {var cont=document.getElementById("Name-player"+(index+1));cont.innerHTML=jugador[index+1];}
-    }  break;
-    case 2:if(jugadorid==2){ for (a=1;a<8;a++){const btnenvio = document.getElementById('C'+a).disabled = true;var cont=document.getElementById("Name-player1");cont.innerHTML=jugador[0];cont=document.getElementById("Name-player2");cont.innerHTML=jugador[2];cont=document.getElementById("Name-player3");cont.innerHTML=jugador[3];}}else{
-        var cont=document.getElementById("Name-player1");cont.innerHTML=jugador[0];cont=document.getElementById("Name-player2");cont.innerHTML=jugador[2];cont=document.getElementById("Name-player3");cont.innerHTML=jugador[3];
-    }  break;
-    case 3:if(jugadorid==3){ for (a=1;a<8;a++){const btnenvio = document.getElementById('C'+a).disabled = true;var cont=document.getElementById("Name-player1");cont.innerHTML=jugador[0];cont=document.getElementById("Name-player2");cont.innerHTML=jugador[1];cont=document.getElementById("Name-player3");cont.innerHTML=jugador[3]}}else{
-        var cont=document.getElementById("Name-player1");cont.innerHTML=jugador[0];cont=document.getElementById("Name-player2");cont.innerHTML=jugador[1];cont=document.getElementById("Name-player3");cont.innerHTML=jugador[3];
-    }  break;
-    case 4:if(jugadorid==4){ for (a=1;a<8;a++){const btnenvio = document.getElementById('C'+a).disabled = true; var cont=document.getElementById("Name-player1");cont.innerHTML=jugador[0];cont=document.getElementById("Name-player2");cont.innerHTML=jugador[1];cont=document.getElementById("Name-player3");cont.innerHTML=jugador[2];}}else{
-        var cont=document.getElementById("Name-player1");cont.innerHTML=jugador[0];cont=document.getElementById("Name-player2");cont.innerHTML=jugador[1];cont=document.getElementById("Name-player3");cont.innerHTML=jugador[2];
-    }  break;
-    default:
-        break;
-}
+let band = true
+let crono=document.getElementById("cro");
+let nombrej = document.querySelector(".ac").value;
+let nombrejp = document.querySelector(".ab").value;
+
 
 function envio(id)
 {
-    let aut;var conte, cart;
-    conte=document.getElementById("C"+id).innerHTML;
-    switch (rondas) {
-        case 1:
-         cart=document.getElementById("player"+(jugadorid-1));cart.innerHTML=conte;break;
-        case 2: aut=0;if(jugadorid>1){aut=1}
-         cart=document.getElementById("player"+(jugadorid-aut));cart.innerHTML=conte;break;
-        case 3: aut=0;if(jugadorid>2){aut=1}
-         cart=document.getElementById("player"+(jugadorid-aut));cart.innerHTML=conte;break;
-        case 4:aut=0;if(jugadorid>3){aut=1}
-         cart=document.getElementById("player"+(jugadorid-aut));cart.innerHTML=conte;break;
-        default:
-            break;
-    }
+    var conte=document.getElementById("C"+id).innerHTML;
+    var cart=document.getElementById("player3");cart.innerHTML=conte;
 }
-function puntos(j){
-    let aut;var conte, cart;
-    switch (rondas) {
-        case 1:
-         puntos[(j-1)+1]=puntos[(j-1)+1];break;
-        case 2: aut=0;if(jugadorid>1){aut=1}
-        puntos[(j-1)+aut]=puntos[(j-1)+aut];break;
-        case 3: aut=0;if(jugadorid>2){aut=1}
-        puntos[(j-1)+aut]=puntos[(j-1)+aut];break;
-        case 4:aut=0;if(jugadorid>3){aut=1}
-        puntos[(j-1)+aut]=puntos[(j-1)+aut];break;
-        default:
-            break;
-    }
-}
-//////////////////////////////////////////
 socket.emit('pedirCartas',"hola");
-
 socket.on('envioCartas',(msg)=>{
     document.querySelector(".Negra").innerHTML = msg[0][0];
 });
 socket.on('envioName',(msg)=>{
     nm = msg;
-    jugadores()
+    if(nombrej == nombrejp){
+        band = true;
+        gg();
+        document.querySelector(".name-player3").innerHTML = nm[1];
+        document.querySelector(".Carta1").addEventListener("click",()=>{
+            console.log("si")
+            socket.emit('selcar',"1");
+            wp();
+            document.querySelector(".Carta1").classList.add("ccd");
+        });
+        document.querySelector(".Carta2").addEventListener("click",()=>{
+            console.log("si")
+            socket.emit('selcar',"2");
+            wp();
+            document.querySelector(".Carta2").classList.add("ccd");
+        });
+        document.querySelector(".Carta3").addEventListener("click",()=>{
+            console.log("si")
+            socket.emit('selcar',"3");
+            wp();
+            document.querySelector(".Carta3").classList.add("ccd");
+        });
+    }
+    else{
+        band = false;
+        document.querySelector(".name-player3").innerHTML = nombrej;
+        document.querySelector(".C1").addEventListener("click",()=>{
+            socket.emit('enviarjuez',document.querySelector("#player3").innerHTML);
+            gg();
+        });
+        document.querySelector(".C2").addEventListener("click",()=>{
+            socket.emit('enviarjuez',document.querySelector("#player3").innerHTML);
+            gg();
+        });
+        document.querySelector(".C3").addEventListener("click",()=>{
+            socket.emit('enviarjuez',document.querySelector("#player3").innerHTML);
+            gg();
+        });
+        document.querySelector(".C4").addEventListener("click",()=>{
+            socket.emit('enviarjuez',document.querySelector("#player3").innerHTML);
+            gg();
+        });
+        document.querySelector(".C5").addEventListener("click",()=>{
+            socket.emit('enviarjuez',document.querySelector("#player3").innerHTML);
+            gg();
+        });
+        document.querySelector(".C6").addEventListener("click",()=>{
+            socket.emit('enviarjuez',document.querySelector("#player3").innerHTML);
+            gg();
+        });
+        document.querySelector(".C7").addEventListener("click",()=>{
+            socket.emit('enviarjuez',document.querySelector("#player3").innerHTML);
+            gg();
+        });
+    }
 });
 
-cambiar("Mesa");
-cambiar("ManoJugador");
-
-
-const jugadores = ()=>{
-    let aux;
-    mn = document.querySelector(".name-player3").innerHTML;
-    for(i=0;i<4;i++){
-        if(mn == nm[i]){
-            aux = nm[3];
-            nm[3] = mn;
-            nm[i] = aux;
-            break;
-        }
+socket.on('recibirjuez',(msg)=>{
+    if(band){
+        document.querySelector("#player3").innerHTML = msg;
     }
-    console.log(nm)
+})
 
-    document.querySelector(".name-player2").innerHTML = nm[2];
-    document.querySelector(".name-player1").innerHTML = nm[1];
-    document.querySelector(".Negra").innerHTML = nm[0];
+socket.on('selec',(nd)=>{
+    document.querySelector(`.Carta${nd}`).classList.add("ccd");
+});
+
+const gg = ()=>{
+    document.querySelector(".C1").classList.add("ag");
+    document.querySelector(".C2").classList.add("ag");
+    document.querySelector(".C3").classList.add("ag");
+    document.querySelector(".C4").classList.add("ag");
+    document.querySelector(".C5").classList.add("ag");
+    document.querySelector(".C6").classList.add("ag");
+    document.querySelector(".C7").classList.add("ag");
 }
+
+const wp = ()=>{
+    document.querySelector(".Carta1").classList.add("ag");
+    document.querySelector(".Carta2").classList.add("ag");
+    document.querySelector(".Carta3").classList.add("ag");
+}
+
+cambiar("Mesa");
+
 
