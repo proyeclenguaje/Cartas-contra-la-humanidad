@@ -7,30 +7,32 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.3/socket.io.js"></script>
 </head>
 <body>
+    preloaded
     <div class="container">
-        <div class="titulo"> <h2>Bienvenido</h2></div>
-        <div class="capa">
-            <div class="loader">
-                <div class="dot"></div>
-            </div>
-            <div class="loader">
-                <div class="dot"></div>
-            </div>
-            <div class="loader">
-                <div class="dot"></div>
-            </div>
-            <div class="loader">
-                <div class="dot"></div>
-            </div>
-            <div class="loader">
-                <div class="dot"></div>
-            </div>
-             <div class="loader">
-                <div class="dot"></div>
-            </div>
-        </div>
-        <div class="text">Esperando a que otros jugadores se unan...</div>
-    </div>
+           <div id="ID">{{Id}}</div>
+           <div class="titulo"> <h2>Bienvenido</h2></div>
+           <div class="capa">
+               <div class="loader">
+                   <div class="dot"></div>
+               </div>
+               <div class="loader">
+                   <div class="dot"></div>
+               </div>
+               <div class="loader">
+                   <div class="dot"></div>
+               </div>
+               <div class="loader">
+                   <div class="dot"></div>
+               </div>
+               <div class="loader">
+                   <div class="dot"></div>
+               </div>
+                <div class="loader">
+                   <div class="dot"></div>
+               </div>
+           </div>
+           <div class="text">Esperando a que otros jugadores se unan...</div>
+       </div>
     <script src="{{ url_for('static',filename='preloader.js') }}"></script>
 </body>
 </html>

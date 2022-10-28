@@ -31,12 +31,12 @@ def obtener():
     return data
 
 def obtener_cartasb():
-    may = mysql.connection.cursor()
-    may.execute('SELECT may FROM user WHERE name = %s',[nm])
-    datam = may.fetchall()
-    may.close()
+    # may = mysql.connection.cursor()
+    # may.execute('SELECT may FROM user WHERE name = %s',[nm])
+    # datam = may.fetchall()
+    # may.close()
     cur = mysql.connection.cursor()
-    cur.execute('SELECT content FROM cartasb WHERE may = %s',[datam])
+    cur.execute('SELECT content FROM cartasb')
     data = cur.fetchall()
     cur.close()
     return data
@@ -104,15 +104,15 @@ def register():
 @app.route('/menu.html')
 def menu():
     return render_template('menu.html')
-@app.route('/preloader.html')
-def preloader():
-    return render_template('preloader.html')
-@app.route('/Player.html')
-def player():
+@app.route('/preloader/<string:id1>.html')
+def preloader(id1):
+    return render_template('preloader.html',Id=id1)
+@app.route('/Player/<string:id1>.html')
+def player(id1):
     nj = name[0]
     name.pop(0)
     cartas = dar_cartas()
-    return render_template('Player.html',cartasb=cartas,nombre = nj)
+    return render_template('Player.html',cartasb=cartas,nombre = nj,Id=id1)
 @app.route('/sesion',methods = ['POST'])
 def sesion():
     global nm
@@ -178,18 +178,20 @@ def jugadores():
     global contador_jugadores
     global cartas
     global name
+    global id
     nn = request.form['nm']
     name.append(nn)
     print(name)
     jugadores_espera = jugadores_espera + 1
+    id=jugadores_espera
     if jugadores_espera == 4:
         cartas = dar_cartas()
         socketio.emit('cargar',cartas)
         jugadores_espera = 0
         contador_jugadores = 0
-        return render_template('Player.html',cartasb = cartas,nombre=nn)
+        return render_template('Player.html',Id=id,cartasb = cartas,nombre=nn)
     else:
-        return redirect(url_for('preloader'))
+        return redirect(url_for('preloader',id1=id))
 
 @socketio.on('pedirCartas')
 def pedirCartas(msg):
