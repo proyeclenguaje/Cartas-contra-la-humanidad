@@ -4,10 +4,10 @@ contador =0;
 let nm=[]
 let carta1 = ["Bolsitas de té","Aguafiestas","Viejos Japoneses","Hulk","Saltar la cuerda","Comer en la cama","Un sauna","Viajar en coche","Un momento incómodo"];
 let carta2 = ["El caballo Juan","Gente blanca","Centauros","Beber solo","Iron man","Tirarse un pedo","Olvidarse de dar de comer al perro","Un dibujo feo","Existencialismo"];
-let band = true
-let crono=document.getElementById("cro");
+let band = true;
 let nombrej = document.querySelector(".ac").value;
 let nombrejp = document.querySelector(".ab").value;
+let cj1 =0,cj2 =0,cj3 =0;
 
 const r = Math.floor(Math.random()*10)+0;
 document.querySelector("#player1").innerHTML =carta1[r];
@@ -29,22 +29,25 @@ socket.on('envioName',(msg)=>{
         gg();
         document.querySelector(".name-player3").innerHTML = nm[1];
         document.querySelector(".Carta1").addEventListener("click",()=>{
-            console.log("si")
+            cj1++;
             socket.emit('selcar',"1");
             wp();
             document.querySelector(".Carta1").classList.add("ccd");
+            document.querySelector(".puntos-player1").innerHTML = cj1;
         });
         document.querySelector(".Carta2").addEventListener("click",()=>{
-            console.log("si")
+            cj2++;
             socket.emit('selcar',"2");
             wp();
             document.querySelector(".Carta2").classList.add("ccd");
+            document.querySelector(".puntos-player2").innerHTML = cj2;
         });
         document.querySelector(".Carta3").addEventListener("click",()=>{
-            console.log("si")
+            cj3++;
             socket.emit('selcar',"3");
             wp();
             document.querySelector(".Carta3").classList.add("ccd");
+            document.querySelector(".puntos-player3").innerHTML = cj3;
         });
     }
     else{
@@ -88,7 +91,19 @@ socket.on('recibirjuez',(msg)=>{
 })
 
 socket.on('selec',(nd)=>{
-    document.querySelector(`.Carta${nd}`).classList.add("ccd");
+    if(nd == 1){
+        cj1++;
+        document.querySelector(`.puntos-player${nd}`).innerHTML = cj1++;
+    }
+    if(nd == 2){
+        cj1++;
+        document.querySelector(`.puntos-player${nd}`).innerHTML = cj1;
+    }
+    if(nd == 3){
+        cj1++;
+        document.querySelector(`.puntos-player${nd}`).innerHTML = cj1;
+    }
+        document.querySelector(`.Carta${nd}`).classList.add("ccd");
 });
 
 const gg = ()=>{
