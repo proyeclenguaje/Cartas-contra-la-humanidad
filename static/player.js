@@ -2,11 +2,16 @@ const socket = io()
 aux=0;
 contador =0;
 let nm=[]
+let carta1 = ["Bolsitas de té","Aguafiestas","Viejos Japoneses","Hulk","Saltar la cuerda","Comer en la cama","Un sauna","Viajar en coche","Un momento incómodo"];
+let carta2 = ["El caballo Juan","Gente blanca","Centauros","Beber solo","Iron man","Tirarse un pedo","Olvidarse de dar de comer al perro","Un dibujo feo","Existencialismo"];
 let band = true
 let crono=document.getElementById("cro");
 let nombrej = document.querySelector(".ac").value;
 let nombrejp = document.querySelector(".ab").value;
 
+const r = Math.floor(Math.random()*10)+0;
+document.querySelector("#player1").innerHTML =carta1[r];
+document.querySelector("#player2").innerHTML =carta2[r];
 
 function envio(id)
 {
