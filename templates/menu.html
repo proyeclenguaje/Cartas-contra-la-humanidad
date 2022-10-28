@@ -15,6 +15,7 @@
                 </div>
                 <div class="botones df">
                     <button class="opc btn">Opciones</button>
+                    <button class="btn-reglas btn">Reglas</button>
                     <form action="/jugadores" method="POST" class="botones">
                         <input type="text" name="nm" class="confirm" value = {{nombre}} >
                         <button class="conect btn" >Conectar</button>
@@ -24,6 +25,25 @@
                     <a href="/login.html">Cerrar Sesión</a>
                 </div>
             </div>
+
+            <div class="div-reglas disp">
+                <div class="div-scroll">
+                    <ul>
+                        <li>1-Se reparten 7 cartas de respuesta a cada jugador.</li>
+                        <li>2-Se elige el juez del primer turno al azar. El juez lee una carta de negra en alto.</li>
+                        <li>3-Los demás jugadores tienen que entregar al juez la carta blanca más divertida que tengan.</li>
+                        <li>4-El juez lee las respuestas en alto una a una.</li>
+                        <li>5-El juez elige la carta que más le gusta y el jugador agraciado recibe un punto.</li>
+                        <li>6-Todos jugadores roban cartas de respuesta hasta tener otra vez 7 cartas.</li>
+                        <li>7-El jugador contiguo al antiguo juez en el sentido de las agujas del reloj será el nuevo juez de este turno.</li>
+                        <li>8-El jugador con más puntos de victoria gana.</li>
+                    </ul>
+                </div>
+                <div class="atras_menu">
+                    <button class="atras-reglas">Atras</button>
+                </div>
+            </div>
+
             <div class="submenu disp">
                 <div class="font-color a">
                     <p class="p-font">Color de fuente</p>

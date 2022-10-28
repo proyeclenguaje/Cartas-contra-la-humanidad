@@ -1,4 +1,3 @@
-from unicodedata import name
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_mysqldb import MySQL
 from flask_socketio import SocketIO
@@ -15,14 +14,14 @@ app.config['MYSQL_DB'] = 'cartas'
 
 mysql = MySQL(app)
 
-contador_jugadores = 0
-jugadores_espera = 0
+contador_jugadores = 2
+jugadores_espera = 2
 nm = ""
 arnm = []
 cartas = ()
 name = []
-
-
+prj = ""
+cje = 0
 def obtener():
     cur = mysql.connection.cursor()
     cur.execute('SELECT name,pass FROM user')
@@ -36,7 +35,7 @@ def obtener_cartasb():
     datam = may.fetchall()
     may.close()
     cur = mysql.connection.cursor()
-    cur.execute('SELECT content FROM cartasb WHERE may = %s',[datam])
+    cur.execute('SELECT content FROM cartasb WHERE may = 0')
     data = cur.fetchall()
     cur.close()
     return data
@@ -112,7 +111,7 @@ def player():
     nj = name[0]
     name.pop(0)
     cartas = dar_cartas()
-    return render_template('Player.html',cartasb=cartas,nombre = nj)
+    return render_template('Player.html',cartasb=cartas,nombre = nj,prij = prj)
 @app.route('/sesion',methods = ['POST'])
 def sesion():
     global nm
@@ -174,20 +173,26 @@ def registrar():
         
 @app.route('/jugadores',methods = ['POST'])
 def jugadores():
+    global cje
+    cje = cje +1
     global jugadores_espera
     global contador_jugadores
     global cartas
     global name
+    global prj
     nn = request.form['nm']
     name.append(nn)
     print(name)
     jugadores_espera = jugadores_espera + 1
+    if cje == 1:
+        prj = nn
+
     if jugadores_espera == 4:
         cartas = dar_cartas()
         socketio.emit('cargar',cartas)
         jugadores_espera = 0
         contador_jugadores = 0
-        return render_template('Player.html',cartasb = cartas,nombre=nn)
+        return render_template('Player.html',cartasb = cartas,nombre=nn,prij = prj)
     else:
         return redirect(url_for('preloader'))
 
@@ -197,5 +202,13 @@ def pedirCartas(msg):
     socketio.emit('envioCartas',cartas)
     socketio.emit('envioName',arnm)
 
+@socketio.on('enviarjuez')
+def enviarjuez(msg):
+    socketio.emit('recibirjuez',msg)
+
+@socketio.on('selcar')
+def selcar(nd):
+    print("hola")
+    socketio.emit('selec',nd)
 if __name__ == '__main__':
     socketio.run(app,debug=True,port=5000)

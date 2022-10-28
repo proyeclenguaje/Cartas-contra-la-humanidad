@@ -22,10 +22,22 @@ document.querySelector(".opc").addEventListener("click",()=>{
     document.querySelector(".submenu").classList.remove("disp");
     document.querySelector(".menu").classList.add("disp");
 });
+
 document.querySelector(".atras").addEventListener("click",()=>{
     document.querySelector(".menu").classList.remove("disp");
     document.querySelector(".submenu").classList.add("disp");
 });
+
+document.querySelector(".btn-reglas").addEventListener("click",()=>{
+    document.querySelector(".div-reglas").classList.remove("disp");
+    document.querySelector(".menu").classList.add("disp");
+});
+
+document.querySelector(".atras-reglas").addEventListener("click",()=>{
+    document.querySelector(".menu").classList.remove("disp");
+    document.querySelector(".div-reglas").classList.add("disp");
+});
+
 document.querySelector(".btn-aplicar").addEventListener("click",()=>{
     document.cookie = `color = ${color_font.value}`;
     document.cookie = `tam = ${tam_font.value}`;

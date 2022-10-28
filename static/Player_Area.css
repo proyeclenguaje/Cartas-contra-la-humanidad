@@ -80,7 +80,6 @@ span.Negra{
     word-wrap: break-word;
     row-gap: 6px;
 }
-
 .ManoJugador {
     height: 300px;
     display: flex;
@@ -126,3 +125,17 @@ span.Negra{
     width: 166px;
     margin-top: 40px;
  }
+ .ab,.ac{
+    display: none;
+}
+
+.ag{
+    cursor: not-allowed;
+    background-color: rgb(229, 229, 229) !important;
+    pointer-events:none;
+}
+
+.ccd{
+    background-color: red;
+    color: #fff;
+}
